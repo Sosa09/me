@@ -54,6 +54,12 @@ function createPaletteButtons() {
         { name: 'sandstone', color: '#E9967A', label: 'Sandstone' },
         { name: 'steel', color: '#88C0D0', label: 'Steel' },
         { name: 'cherry-blossom', color: '#DE3163', label: 'Cherry Blossom' },
+        // --- 5 New Light Palettes ---
+        { name: 'minty-breeze', color: '#7FFFD4', label: 'Minty Breeze (Light)' },
+        { name: 'peach-sorbet', color: '#FFDAB9', label: 'Peach Sorbet (Light)' },
+        { name: 'sky-blue', color: '#87CEEB', label: 'Sky Blue (Light)' },
+        { name: 'lilac-dream', color: '#D8BFD8', label: 'Lilac Dream (Light)' },
+        { name: 'misty-gray', color: '#B0C4DE', label: 'Misty Gray (Light)' },
     ];
 
     palettes.forEach(p => {

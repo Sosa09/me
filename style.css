@@ -90,6 +90,12 @@
 [data-theme="sandstone"] { --bg-color: #432F2B; --card-color: #6B4B43; --text-primary: #FFEBCD; --text-secondary: #F5DEB3; --accent-color: #E9967A; --text-bg-color: #432F2B; }
 [data-theme="steel"] { --bg-color: #2B303A; --card-color: #404854; --text-primary: #D8DEE9; --text-secondary: #BCC8DC; --accent-color: #88C0D0; --text-bg-color: #2B303A; }
 [data-theme="cherry-blossom"] { --bg-color: #4C0013; --card-color: #6F001C; --text-primary: #FFD9E2; --text-secondary: #FFB0C1; --accent-color: #DE3163; --text-bg-color: #4C0013; }
+/* --- 5 New Light Palettes --- */
+[data-theme="minty-breeze"] { --bg-color: #F0FFF0; --card-color: #E6F9E6; --text-primary: #2E4636; --text-secondary: #4A6D55; --accent-color: #7FFFD4; --text-bg-color: #2E4636; }
+[data-theme="peach-sorbet"] { --bg-color: #FFF5EE; --card-color: #FFEADB; --text-primary: #5D4037; --text-secondary: #795548; --accent-color: #FFDAB9; --text-bg-color: #5D4037; }
+[data-theme="sky-blue"] { --bg-color: #F0F8FF; --card-color: #E6F2FF; --text-primary: #2C3E50; --text-secondary: #46637F; --accent-color: #87CEEB; --text-bg-color: #FFFFFF; }
+[data-theme="lilac-dream"] { --bg-color: #F8F0FF; --card-color: #F2E6FF; --text-primary: #4B3A59; --text-secondary: #6A537D; --accent-color: #D8BFD8; --text-bg-color: #4B3A59; }
+[data-theme="misty-gray"] { --bg-color: #F5F5F5; --card-color: #EBEBEB; --text-primary: #363636; --text-secondary: #555555; --accent-color: #B0C4DE; --text-bg-color: #363636; }
 
 /* --- Palette Switcher (Debug) --- */
 .palette-switcher {
