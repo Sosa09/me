@@ -142,6 +142,109 @@
     }
 }
 
+/* --- Skill Cloud --- */
+#skill-cloud-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    perspective: 1000px;
+}
+
+.skill-cloud {
+    position: relative;
+    width: 450px; /* Increased size for more space */
+    height: 450px;
+    transform-style: preserve-3d;
+    /* Add a slow rotation to the whole cloud */
+    animation: cloud-rotate 120s linear infinite;
+}
+
+.skill-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d; /* Allow inner span to be transformed in 3D */
+    /* Prevent tags from being selected */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    font-family: 'Chivo Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    cursor: default;
+}
+
+.skill-tag-text {
+    display: block;
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    /* This transform will keep the text facing forward, countering the parent's rotation */
+    animation: text-unrotate 120s linear infinite;
+}
+
+.skill-tag:hover {
+    color: var(--accent-color);
+    opacity: 1;
+    /* On hover, stop the drift animation and reset to the base position, slightly scaled up for focus */
+    animation: none;
+    transform: translate3d(var(--x), var(--y), var(--z)) scale(1.1);
+    z-index: 10; /* Bring hovered tag to the front */
+}
+
+.skill-tag:hover .skill-tag-text {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* Keyframe for the whole cloud rotation */
+@keyframes cloud-rotate {
+    from { transform: rotateY(0deg) rotateX(0deg); }
+    to { transform: rotateY(360deg) rotateX(360deg); }
+}
+
+/* New keyframe to make the text always face the camera */
+@keyframes text-unrotate {
+    from { transform: rotateY(0deg) rotateX(0deg); }
+    to { transform: rotateY(-360deg) rotateX(-360deg); }
+}
+
+/* Keyframe for individual skill drifting movement */
+@keyframes skill-drift {
+    0% { transform: translate3d(var(--x), var(--y), var(--z)) scale(1); }
+    50% { transform: translate3d(calc(var(--x) * 1.2), calc(var(--y) * 1.2), calc(var(--z) * 1.2)) scale(1.1); }
+    100% { transform: translate3d(var(--x), var(--y), var(--z)) scale(1); }
+}
+
+/* Skill Definition Tooltip */
+.skill-definition-tooltip {
+    position: absolute;
+    bottom: -4rem; /* Position below the cloud */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    padding: 1rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 20;
+}
+
+.fallback-skill {
+    font-family: 'Chivo Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    background-color: var(--card-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
 html, body {
     overflow-x: hidden; /* Prevent horizontal scroll from absolute elements */
 }
@@ -340,64 +443,6 @@ nav a:hover {
 .achievement-card-content {
     position: relative;
     z-index: 2;
-}
-
-/* Project Slider */
-.slider-container {
-    overflow: hidden;
-    width: 100%;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slider-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.slider-btn {
-    background-color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    color: var(--text-bg-color);
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    box-shadow: var(--shadow);
-}
-
-.slider-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 25px 60px -10px rgba(0,0,0,.8), 0 8px 25px -8px rgba(0,0,0,.8);
-}
-
-.slider-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
-
-.progress-bar-container {
-    width: 200px;
-    height: 4px;
-    background-color: var(--card-color);
-    border: 1px solid var(--text-secondary);
-    border-radius: 2px;
-    margin: 0 1rem;
-}
-
-#progress-bar {
-    height: 100%;
-    background-color: var(--accent-color);
-    width: 0%; /* Will be set by JS */
-    transition: width 0.5s ease-in-out;
 }
 
 /* Main CTA Button */

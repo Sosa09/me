@@ -11,14 +11,12 @@ async function loadData() {
         }
         portfolioData = await response.json();
         renderAchievements();
-        renderProjects();
+        renderSkillCloud(); // Move skill cloud rendering here to ensure data is loaded
     } catch (error) {
         console.error("Could not load portfolio data:", error);
         // Optionally display an error message to the user
         const achievementsContainer = document.getElementById('achievements-container');
-        const sliderTrack = document.getElementById('slider-track');
         if(achievementsContainer) achievementsContainer.innerHTML = '<p class="text-red-500 text-center col-span-full">Could not load achievements.</p>';
-        if(sliderTrack) sliderTrack.innerHTML = '<p class="text-red-500 text-center w-full">Could not load projects.</p>';
     }
 }
 
@@ -46,169 +44,92 @@ function renderAchievements() {
     });
 }
 
-// Function to render projects
-function renderProjects() {
-    const track = document.getElementById('slider-track');
-    if (!track || !portfolioData || !portfolioData.projects) return;
+// Function to render the skill cloud
+function renderSkillCloud() {
+    const container = document.getElementById('skill-cloud-container');
+    if (!container) return;
 
-    track.innerHTML = ''; // Clear existing content
+    container.innerHTML = ''; // Clear fallback skills
 
-    portfolioData.projects.forEach(proj => {
-        const card = document.createElement('div');
-        card.className = 'project-card rounded-lg p-6 md:p-8 flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border mr-6';
-        card.innerHTML = `
-            <h3 class="text-xl md:text-2xl font-bold accent-text">${proj.title}</h3>
-            <p class="mt-4 text-slate opacity-90">
-                <strong>Problem:</strong> ${proj.problem}
-            </p>
-            <p class="mt-4 text-slate opacity-90">
-                <strong>Solution:</strong> ${proj.solution}
-            </p>
-            <p class="mt-4 text-slate opacity-90">
-                <strong>Outcome:</strong> ${proj.outcome}
-            </p>
-        `;
-        track.appendChild(card);
+    let skillsData = [];
+    if (portfolioData && portfolioData.skills && portfolioData.skills.length > 0) {
+        // If skills exist in data.json, map them to the required object structure
+        skillsData = portfolioData.skills.map(skill => ({
+            name: skill,
+            definition: `Definition for ${skill}.` // Generic definition
+        }));
+    } else {
+        // Fallback to dummy skills if data.json is empty or fails to load
+        console.warn("Skills not found in data.json, using dummy skills.");
+        skillsData = [
+            { name: "Dummy Skill 1", definition: "This is a fallback skill." },
+            { name: "Dummy Skill 2", definition: "This is a fallback skill." },
+            { name: "Dummy Skill 3", definition: "This is a fallback skill." },
+            { name: "Dummy Skill 4", definition: "This is a fallback skill." },
+            { name: "Dummy Skill 5", definition: "This is a fallback skill." }
+        ];
+    }
+
+    const radius = 250; // Increased radius to spread skills out more
+
+    // Create a single tooltip element that will be shared
+    const tooltip = document.createElement('div');
+    tooltip.className = 'skill-definition-tooltip';
+    container.appendChild(tooltip);
+
+    const cloud = document.createElement('div');
+    cloud.className = 'skill-cloud';
+    container.appendChild(cloud);
+
+    skillsData.forEach((skill, i) => {
+        const tag = document.createElement('span');
+        tag.className = 'skill-tag';
+
+        // Create an inner span for the text to prevent it from flipping
+        const textSpan = document.createElement('span');
+        textSpan.className = 'skill-tag-text';
+        textSpan.textContent = skill.name;
+        tag.appendChild(textSpan);
+
+        tag.dataset.definition = skill.definition;
+
+        // Distribute points evenly on a sphere using Fibonacci lattice
+        const phi = Math.acos(-1 + (2 * i) / skillsData.length);
+        const theta = Math.sqrt(skillsData.length * Math.PI) * phi;
+
+        const x = radius * Math.cos(theta) * Math.sin(phi);
+        const y = radius * Math.sin(theta) * Math.sin(phi);
+        const z = radius * Math.cos(phi);
+
+        // Set custom properties for the animation to use
+        tag.style.setProperty('--x', `${x}px`);
+        tag.style.setProperty('--y', `${y}px`);
+        tag.style.setProperty('--z', `${z}px`);
+
+        // Apply a random animation to each tag for individual movement
+        const duration = 30 + Math.random() * 30; // Random duration between 30s and 60s
+        const delay = Math.random() * -60; // Random negative delay
+        tag.style.animation = `skill-drift ${duration}s ease-in-out ${delay}s infinite alternate`;
+
+        // Event listeners for showing the tooltip on skill hover
+        tag.addEventListener('mouseover', () => {
+            tooltip.textContent = tag.dataset.definition;
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = '1';
+        });
+
+        tag.addEventListener('mouseout', () => {
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.opacity = '0';
+        });
+        cloud.appendChild(tag);
     });
 
-    // Initialize slider *after* projects are rendered
-    initializeSlider();
+    // Add event listeners to the main container to pause the cloud rotation
+    container.addEventListener('mouseover', () => cloud.style.animationPlayState = 'paused');
+    container.addEventListener('mouseout', () => cloud.style.animationPlayState = 'running');
 }
 // --- End Data Loading and Rendering ---
-
-// --- Slider Logic ---
-function initializeSlider() {
-     // If slider already exists, maybe just update? Or prevent re-init.
-    if (sliderInitialized) {
-        console.log("Slider already initialized, attempting to update.");
-        // We might need a dedicated update function if cards change dynamically later
-        // For now, let's just run the setup again, ensuring listeners are managed.
-        // Or simply return if the slider structure should only be built once.
-        // Let's reset the flag and proceed to ensure resize works correctly after data load
-        sliderInitialized = false;
-    }
-
-    const track = document.querySelector('.slider-track');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const progressBar = document.getElementById('progressBar');
-
-    // Only proceed if essential elements exist
-    if (!track || !nextBtn || !prevBtn || !progressBar || track.children.length === 0) {
-        console.log("Slider essential elements not found or no cards. Skipping slider initialization.");
-        // Hide controls if no cards?
-        const controls = document.querySelector('.slider-controls');
-        if(controls) controls.style.display = 'none';
-        return;
-    }
-     // Show controls if they were hidden
-    const controls = document.querySelector('.slider-controls');
-    if(controls) controls.style.display = 'flex';
-
-    let cards = Array.from(track.children);
-    let cardWidth = cards[0].offsetWidth; // Use offsetWidth for accurate width including padding/border
-    let cardsToShow = calculateCardsToShow();
-    // Get margin from CSS - safer to access style directly if possible
-    let cardMargin = cards.length > 1 ? parseInt(window.getComputedStyle(cards[0]).marginRight) || 0 : 0;
-    let slideWidth = cardWidth + cardMargin;
-    let currentIndex = 0;
-    let totalSlides = calculateTotalSlides();
-
-    function calculateCardsToShow() {
-        if (window.innerWidth < 768) return 1;
-        if (window.innerWidth < 1024) return 2;
-        return 3;
-    }
-
-    function calculateTotalSlides() {
-        if (cards.length === 0) return 0;
-        const numCardsToShow = calculateCardsToShow();
-        return Math.ceil(cards.length / numCardsToShow);
-    }
-
-    function resizeHandler() {
-        if (cards.length === 0) return;
-        cardWidth = cards[0].offsetWidth; // Recalculate width on resize
-        cardsToShow = calculateCardsToShow();
-        cardMargin = cards.length > 1 ? parseInt(window.getComputedStyle(cards[0]).marginRight) || 0 : 0;
-        slideWidth = cardWidth + cardMargin;
-        totalSlides = calculateTotalSlides();
-        currentIndex = 0; // Reset index on resize
-        updateSlider();
-    }
-
-    // Debounce resize handler
-    let resizeTimeout;
-    window.removeEventListener('resize', debouncedResizeHandler); // Remove previous listener if any
-    window.addEventListener('resize', debouncedResizeHandler);
-
-    function debouncedResizeHandler() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(resizeHandler, 100); // Wait 100ms after resize stops
-    }
-
-
-    function updateSlider() {
-        if (cards.length === 0) return;
-        let moveAmount = -currentIndex * (slideWidth * cardsToShow);
-        // Adjust for single/double card views where we slide card by card
-         if (window.innerWidth < 768) { // Mobile
-            moveAmount = -currentIndex * slideWidth;
-        } else if (window.innerWidth < 1024) { // Tablet
-             moveAmount = -currentIndex * (slideWidth * 2); // Slide two cards at a time
-        } else { // Desktop
-            moveAmount = -currentIndex * (slideWidth * 3); // Slide three cards at a time
-        }
-
-        track.style.transform = `translateX(${moveAmount}px)`;
-        updateControls();
-    }
-
-    function updateControls() {
-        if (cards.length === 0 || totalSlides === 0) {
-            prevBtn.disabled = true;
-            nextBtn.disabled = true;
-            progressBar.style.width = '0%';
-            return;
-        };
-
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= totalSlides - 1; // Check against total *pages*
-
-        let progress = totalSlides > 1 ? (currentIndex / (totalSlides - 1)) * 100 : 100;
-        progressBar.style.width = `${progress}%`;
-    }
-
-     // Remove potentially existing listeners before adding new ones
-    const nextClickHandler = () => {
-        if (currentIndex < totalSlides - 1) {
-            currentIndex++;
-            updateSlider();
-        }
-    };
-    const prevClickHandler = () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    };
-
-    // Clean up old listeners if re-initializing
-    nextBtn.removeEventListener('click', nextBtn._clickHandler);
-    prevBtn.removeEventListener('click', prevBtn._clickHandler);
-
-    // Store handlers to remove later
-    nextBtn._clickHandler = nextClickHandler;
-    prevBtn._clickHandler = prevClickHandler;
-
-    nextBtn.addEventListener('click', nextBtn._clickHandler);
-    prevBtn.addEventListener('click', prevBtn._clickHandler);
-
-    updateSlider(); // Initial setup
-    sliderInitialized = true; // Set flag
-}
-// --- End Slider Logic ---
-
 
 // --- Contact Form Modal Logic ---
 document.addEventListener('DOMContentLoaded', () => {

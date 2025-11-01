@@ -19,36 +19,13 @@
       "imageUrl": "https://placehold.co/600x400/0B0B0B/F0E6D1?text=Cloud&font=chivo-mono"
     }
   ],
-  "projects": [
-    {
-      "title": "Cloud Cost Optimization",
-      "problem": "Monthly cloud bills were spiraling, with un-tagged and underutilized resources causing a 25% budget overshoot.",
-      "solution": "Implemented automated resource tagging, shutdown schedules, and rightsized idle VMs using [IaC Tool] and [Cloud Feature/Script].",
-      "outcome": "Reduced cloud spend by $7,500/month (a 20% saving) within 60 days."
-    },
-    {
-      "title": "Zero-Downtime Deployment",
-      "problem": "Deployments were manual, took over an hour, and often required 5-10 minutes of production downtime.",
-      "solution": "Designed and built a new, fully automated CI/CD pipeline using [CI/CD Tool] with a [Deployment Strategy].",
-      "outcome": "Deployment time cut from 60 minutes to under 8 minutes. Achieved 100% zero-downtime deployments."
-    },
-    {
-      "title": "Proactive Monitoring Suite",
-      "problem": "Incident response was reactive. Failure was only learned about after customers complained (MTTR of 45+ minutes).",
-      "solution": "Deployed a centralized logging/monitoring solution using [Monitoring Tool] and [Logging Tool] with custom alerts.",
-      "outcome": "Reduced MTTR by 80% (from 45+ minutes to less than 8 minutes) by alerting the team to impending failures."
-    },
-    {
-      "title": "Infrastructure Hardening",
-      "problem": "Firewall and access management rules were inconsistent and undocumented, creating a significant security and compliance risk.",
-      "solution": "Documented all network flows and enforced principle of least privilege by implementing [IAM/Security Tool] via [Automation/Scripting].",
-      "outcome": "Passed a mandatory external security audit on the first attempt. Eliminated all critical unauthorized access paths."
-    },
-    {
-      "title": "Automated System Recovery",
-      "problem": "System failures required a tedious, 4-hour manual recovery process that halted operations.",
-      "solution": "Created a \"self-healing\" utility using [Config Management Tool] to automatically detect and repair common system faults.",
-      "outcome": "Recovery time for major system failure reduced from 4 hours to less than 15 minutes, ensuring business continuity."
-    }
+  "skills": [
+    "Docker", "Kubernetes", "Terraform", "Ansible", "AWS", "Azure", "GCP",
+    "CI/CD", "Jenkins", "GitLab CI", "GitHub Actions", "Git",
+    "Python", "Bash", "Go", "PowerShell",
+    "Linux", "Windows Server", "Networking", "Security",
+    "Prometheus", "Grafana", "ELK Stack", "Datadog",
+    "SQL", "NoSQL", "PostgreSQL", "MongoDB",
+    "Nginx", "Apache", "HAProxy", "Vault"
   ]
 }

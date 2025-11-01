@@ -111,24 +111,20 @@
         </section>
 
         <!-- Work Section -->
-        <section id="work" class="my-20 md:my-32">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Some Things I've Built</h2>
+        <section id="skills" class="my-20 md:my-32">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">My Tech Stack</h2>
             <div class="w-24 h-1 accent-bg mt-4"></div>
 
-            <!-- Project Slider Container -->
-            <div class="mt-10 slider-container">
-                <div class="slider-track" id="slider-track">
-                    <!-- Projects will be loaded here by JS -->
+            <!-- Skill Cloud Container -->
+            <div id="skill-cloud-container" class="mt-16">
+                <!-- Fallback skills for non-JS/pre-load. Will be replaced by the dynamic cloud. -->
+                <div class="flex flex-wrap justify-center gap-4 text-center">
+                    <span class="fallback-skill">Docker</span>
+                    <span class="fallback-skill">Kubernetes</span>
+                    <span class="fallback-skill">AWS</span>
+                    <span class="fallback-skill">Terraform</span>
+                    <span class="fallback-skill">Python</span>
                 </div>
-            </div>
-
-            <!-- Slider Controls -->
-            <div class="slider-controls">
-                <button id="prevBtn" class="slider-btn" aria-label="Previous Project">&lt;</button>
-                <div class="progress-bar-container">
-                    <div id="progressBar"></div>
-                </div>
-                <button id="nextBtn" class="slider-btn" aria-label="Next Project">&gt;</button>
             </div>
         </section>
 
