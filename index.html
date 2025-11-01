@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soufiane Ar-Razouki - DevOps Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+
+    <!-- --- Palette Switcher (Debug/Demo) --- -->
+    <div class="palette-switcher">
+        <!-- Buttons will be injected here by script.js -->
+    </div>
+    <!-- --- End Palette Switcher --- -->
+
+    <!-- Right Sidebar (Email) -->
+    <div class="side-bar side-bar-right hidden lg:flex">
+        <a href="mailto:soufiane.arrazouki@hotmail.com" class="email-link">
+            soufiane.arrazouki@hotmail.com
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 transition-all duration-300 ease-in-out">
+
+        <!-- Header -->
+        <header class="pt-10 md:pt-20">
+            <nav class="flex justify-center md:justify-end">
+                <ul class="flex space-x-6 md:space-x-10 text-sm md:text-base">
+                    <li><a href="#about" class="tracking-widest">ABOUT</a></li>
+                    <li><a href="#services" class="tracking-widest">SERVICES</a></li>
+                    <li><a href="#work" class="tracking-widest">WORK</a></li>
+                    <li><a href="#contact" class="tracking-widest">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="mt-16 md:mt-32 pb-32 flex flex-col items-center text-center lg:items-start lg:text-left">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter !leading-tight max-w-4xl">
+                <span class="block">Soufiane Ar-Razouki</span>
+                <span class="accent-text block">DevOps & Systems Engineer</span>
+            </h1>
+            <h2 class="mt-8 text-xl md:text-2xl font-light max-w-2xl text-slate">
+                Curious mind. Relentless builder.
+            </h2>
+            <p class="mt-6 text-base md:text-lg max-w-2xl text-slate opacity-80">
+                I'm the person who enjoys digging into complex systems to find the real problem. I replace messy infrastructure and frustrating downtime with clean automation and monitoring you can actually trust.
+            </p>
+            <div class="mt-10 flex flex-col items-center lg:items-start space-y-6">
+                <button id="open-contact-form" class="px-8 py-3 text-base font-medium cta-btn">
+                    Get In Touch
+                </button>
+            </div>
+        </main>
+
+        <!-- About Me Section -->
+        <section id="about" class="my-20 md:my-32">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-20 items-start">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">About Me</h2>
+                    <div class="w-24 h-1 accent-bg mt-4"></div>
+                </div>
+                <div class="lg:col-span-3 space-y-6 text-base md:text-lg text-slate opacity-90">
+                     <p>
+                        My journey started with a fascination for the basics – understanding how Windows systems and hardware actually work. Knowing the foundations is key to building things that don't fall over.
+                    </p>
+                    <p>
+                        Discovering DevOps felt like finding the missing piece. It lets me combine everything I enjoy: system administration, networking, automating things, and even a bit of development, all in one role.
+                    </p>
+                    <p>
+                        When people say I'm 'happy to work,' it's really about my mindset. A broken system isn't a disaster, it's a puzzle I get to solve. I genuinely enjoy the process of digging in, figuring out the 'why,' and getting things running smoothly again. That's the energy I bring to every challenge.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Achievements & Credentials Container -->
+            <div class="mt-16 md:mt-24">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-center">Achievements & Credentials</h3>
+                <div id="achievements-container" class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Achievements will be loaded here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="my-20 md:my-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">How I Can Help</h2>
+                <div class="w-24 h-1 accent-bg mt-4 mx-auto"></div>
+                <p class="mt-6 text-base md:text-lg text-slate opacity-80">
+                    My goal is to make your infrastructure solid, automated, and easy to manage.
+                </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="styled-card p-6">
+                    <h3 class="text-xl font-bold accent-text">Untangle the Mess</h3>
+                    <p class="mt-3 text-slate opacity-90">I find the hidden problems slowing you down, set up clear monitoring, and bring clarity to confusing infrastructure so you know what's really going on.</p>
+                </div>
+                <div class="styled-card p-6">
+                    <h3 class="text-xl font-bold accent-text">Automate for Stability</h3>
+                    <p class="mt-3 text-slate opacity-90">Forget manual errors and late-night fires. I build reliable CI/CD pipelines and systems that can recover themselves, letting your team focus on building features, not fixing breaks.</p>
+                </div>
+                <div class="styled-card p-6">
+                    <h3 class="text-xl font-bold accent-text">Document & Simplify</h3>
+                    <p class="mt-3 text-slate opacity-90">I turn confusing, undocumented setups into clear, repeatable processes using Infrastructure as Code (IaC) and solid documentation, making your systems easier to manage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="my-20 md:my-32">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Some Things I've Built</h2>
+            <div class="w-24 h-1 accent-bg mt-4"></div>
+
+            <!-- Project Slider Container -->
+            <div class="mt-10 slider-container">
+                <div class="slider-track" id="slider-track">
+                    <!-- Projects will be loaded here by JS -->
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <div class="slider-controls">
+                <button id="prevBtn" class="slider-btn" aria-label="Previous Project">&lt;</button>
+                <div class="progress-bar-container">
+                    <div id="progressBar"></div>
+                </div>
+                <button id="nextBtn" class="slider-btn" aria-label="Next Project">&gt;</button>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-20 md:my-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Get In Touch</h2>
+            <div class="w-24 h-1 accent-bg mt-4 mx-auto"></div>
+            <p class="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate opacity-80">
+                Have a project, an idea, or just want to chat about tech? Let's connect.
+            </p>
+            <button id="open-contact-form-2" class="mt-10 inline-block px-12 py-4 text-lg font-medium cta-btn">
+                Initiate Contact
+            </button>
+
+            <!-- Social Links moved here -->
+            <div class="contact-socials">
+                <a href="https://github.com/Sosa09" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/soufiane-ar-razouki-3a098253/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+                <a href="tel:0470578125" aria-label="Phone">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M16.596 2.012c.57.086 1.036.533 1.134 1.09l.648 3.65c.088.494-.078.99-.444 1.348l-2.316 2.316c-.347.347-.513.82-.443 1.284 1.29 3.038 3.557 5.305 6.595 6.595.464.07.937-.096 1.284-.443l2.316-2.316c.358-.366.854-.532 1.348-.444l3.65.648c.557.098 1.004.564 1.09 1.134l.62 4.384c.085.602-.153 1.2-.622 1.63l-2.85 2.583c-1.196 1.077-2.73 1.48-4.228 1.153-4.665-.98-8.892-3.52-12.025-7.465C2.073 13.076.01 9.17-.97 4.504c-.326-1.498.077-3.032 1.153-4.228L2.766.426c.43-.469 1.028-.707 1.63-.622l4.384.62c.567.08 1.016.52 1.09 1.06l.62 4.384c.084.594-.157 1.194-.632 1.62l-2.85 2.583c-1.196 1.077-2.73 1.48-4.228 1.153C3.78 6.28 5.6 7.64 7.632 9.67l.11.11c2.03 2.032 3.39 3.85 4.09 4.848.326-1.498.73-3.032 1.805-4.228l2.584-2.85c.425-.475.498-1.144.17-1.71l-.62-4.384z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-10 border-t border-slate/20">
+            <p class="text-sm text-slate opacity-70 mb-4">
+                Designed & Built by Soufiane Ar-Razouki (arrs) © 2025
+            </p>
+            <!-- Download Links Section -->
+            <div id="download-links" class="text-sm text-slate opacity-70">
+                <span class="font-bold">Download Files:</span>
+                <a href="#" data-filename="index.html" class="underline hover:text-accent-color transition-colors mx-2">HTML</a> |
+                <a href="#" data-filename="styles.css" class="underline hover:text-accent-color transition-colors mx-2">CSS</a> |
+                <a href="#" data-filename="script.js" class="underline hover:text-accent-color transition-colors mx-2">JS</a> |
+                <a href="#" data-filename="data.json" class="underline hover:text-accent-color transition-colors mx-2">Data (JSON)</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-form-overlay" class="hidden">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close"></div>
+                    <div class="terminal-control min"></div>
+                    <div class="terminal-control max"></div>
+                </div>
+                <div class="terminal-title">contact-form.sh</div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
