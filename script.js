@@ -1,78 +1,3 @@
-// --- Palette Switcher Logic ---
-function setPalette(themeName) {
-    if (themeName === 'default') {
-        document.documentElement.removeAttribute('data-theme');
-    } else {
-        document.documentElement.setAttribute('data-theme', themeName);
-    }
-}
-
-// Function to create and add palette buttons
-function createPaletteButtons() {
-    const switcher = document.querySelector('.palette-switcher');
-    if (!switcher) return;
-
-    const palettes = [
-        { name: 'default', color: '#F0E6D1', label: 'Charcoal/Cream' },
-        { name: 'warm-amber', color: '#F59E0B', label: 'Warm Amber' },
-        { name: 'soft-crimson', color: '#EF4444', label: 'Soft Crimson' },
-        { name: 'electric-lime', color: '#A3E635', label: 'Electric Lime' },
-        { name: 'cyber-green', color: '#33FF33', label: 'Cyber Green' },
-        { name: 'arc-reactor', color: '#06B6D4', label: 'Arc Reactor' },
-        { name: 'quantum-purple', color: '#C026D3', label: 'Quantum Purple' },
-        { name: 'midnight-gold', color: '#FBBF24', label: 'Midnight/Gold' },
-        { name: 'slate-crimson', color: '#DC2626', label: 'Slate/Crimson' },
-        { name: 'forest-amber', color: '#F59E0B', label: 'Forest/Amber' },
-        { name: 'oceanic', color: '#00BCD4', label: 'Oceanic' },
-        { name: 'sunset', color: '#FF6B6B', label: 'Sunset' },
-        { name: 'royal', color: '#A69BEE', label: 'Royal' },
-        { name: 'graphite', color: '#FFAB00', label: 'Graphite' },
-        { name: 'moss', color: '#A5D6A7', label: 'Moss' },
-        { name: 'ruby', color: '#F44336', label: 'Ruby' },
-        { name: 'sapphire', color: '#42A5F5', label: 'Sapphire' },
-        { name: 'monochrome', color: '#FFFFFF', label: 'Monochrome' },
-        { name: 'rose', color: '#EC407A', label: 'Rose' },
-        { name: 'earth', color: '#FF9800', label: 'Earth' },
-        // --- 20 New Palettes ---
-        { name: 'solar-flare', color: '#FF8C00', label: 'Solar Flare' },
-        { name: 'deep-space', color: '#50E3C2', label: 'Deep Space' },
-        { name: 'emerald-city', color: '#00FF7F', label: 'Emerald City' },
-        { name: 'vintage-teal', color: '#CD853F', label: 'Vintage Teal' },
-        { name: 'crimson-night', color: '#DC143C', label: 'Crimson Night' },
-        { name: 'golden-dune', color: '#D4AF37', label: 'Golden Dune (Light)' },
-        { name: 'arctic-dawn', color: '#E6A4B4', label: 'Arctic Dawn (Light)' },
-        { name: 'lavender-haze', color: '#C3B1E1', label: 'Lavender Haze' },
-        { name: 'olive-grove', color: '#B5B887', label: 'Olive Grove' },
-        { name: 'coral-reef', color: '#FF6F61', label: 'Coral Reef' },
-        { name: 'volcanic-ash', color: '#FF4500', label: 'Volcanic Ash' },
-        { name: 'sakura', color: '#FFB7C5', label: 'Sakura (Light)' },
-        { name: 'neptune', color: '#3EDBF0', label: 'Neptune' },
-        { name: 'tangerine', color: '#F28500', label: 'Tangerine' },
-        { name: 'amethyst', color: '#9966CC', label: 'Amethyst' },
-        { name: 'forest-floor', color: '#778A35', label: 'Forest Floor' },
-        { name: 'blueberry', color: '#8A2BE2', label: 'Blueberry' },
-        { name: 'sandstone', color: '#E9967A', label: 'Sandstone' },
-        { name: 'steel', color: '#88C0D0', label: 'Steel' },
-        { name: 'cherry-blossom', color: '#DE3163', label: 'Cherry Blossom' },
-        // --- 5 New Light Palettes ---
-        { name: 'minty-breeze', color: '#7FFFD4', label: 'Minty Breeze (Light)' },
-        { name: 'peach-sorbet', color: '#FFDAB9', label: 'Peach Sorbet (Light)' },
-        { name: 'sky-blue', color: '#87CEEB', label: 'Sky Blue (Light)' },
-        { name: 'lilac-dream', color: '#D8BFD8', label: 'Lilac Dream (Light)' },
-        { name: 'misty-gray', color: '#B0C4DE', label: 'Misty Gray (Light)' },
-    ];
-
-    palettes.forEach(p => {
-        const button = document.createElement('button');
-        button.className = 'palette-btn';
-        button.style.backgroundColor = p.color;
-        button.setAttribute('aria-label', `Set ${p.label} Theme`);
-        button.onclick = () => setPalette(p.name);
-        switcher.appendChild(button);
-    });
-}
-// --- End Palette Switcher Logic ---
-
 // --- Data Loading and Rendering ---
 let portfolioData = null; // To store fetched data
 let sliderInitialized = false; // Flag to prevent multiple initializations
@@ -480,8 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initialize palette buttons and load data when the DOM is ready
-    createPaletteButtons();
+    // Load data when the DOM is ready
     loadData();
 
 }); // End DOMContentLoaded
