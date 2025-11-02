@@ -13,134 +13,89 @@
 
 /* --- Theme Palettes --- */
 [data-theme="warm-amber"] {
-    --bg-color: #1C1917; --card-color: #292524; --text-primary: #FDE68A; --text-secondary: #F5F5F4; --accent-color: #F59E0B; --text-bg-color: #1C1917;
+    --bg-color: #1C1917; --card-color: #292524; --text-primary: #FDE68A; --text-secondary: #F5F5F4; --accent-color: #F59E0B; --text-bg-color: #1C1917; --card-grad-1: #F59E0B; --card-grad-2: #4a0031; --card-grad-3: #06B6D4;
 }
 [data-theme="soft-crimson"] {
-    --bg-color: #1F2937; --card-color: #374151; --text-primary: #FEE2E2; --text-secondary: #E5E7EB; --accent-color: #EF4444; --text-bg-color: #1F2937;
+    --bg-color: #1F2937; --card-color: #374151; --text-primary: #FEE2E2; --text-secondary: #E5E7EB; --accent-color: #EF4444; --text-bg-color: #1F2937; --card-grad-1: #EF4444; --card-grad-2: #1E1B2E; --card-grad-3: #A3E635;
 }
 [data-theme="electric-lime"] {
-    --bg-color: #1A202C; --card-color: #2D3748; --text-primary: #ECFCCB; --text-secondary: #E2E8F0; --accent-color: #A3E635; --text-bg-color: #1A202C;
+    --bg-color: #1A202C; --card-color: #2D3748; --text-primary: #ECFCCB; --text-secondary: #E2E8F0; --accent-color: #A3E635; --text-bg-color: #1A202C; --card-grad-1: #A3E635; --card-grad-2: #1A2E29; --card-grad-3: #06B6D4;
 }
 [data-theme="cyber-green"] {
-    --bg-color: #010101; --card-color: #111111; --text-primary: #33FF33; --text-secondary: #CCCCCC; --accent-color: #33FF33; --text-bg-color: #010101;
+    --bg-color: #010101; --card-color: #111111; --text-primary: #33FF33; --text-secondary: #CCCCCC; --accent-color: #33FF33; --text-bg-color: #010101; --card-grad-1: #33FF33; --card-grad-2: #0E1420; --card-grad-3: #1E1B2E;
 }
 [data-theme="arc-reactor"] {
-    --bg-color: #0E1420; --card-color: #1C2A3A; --text-primary: #E0F2F7; --text-secondary: #C1D5E0; --accent-color: #06B6D4; --text-bg-color: #0E1420;
+    --bg-color: #0E1420; --card-color: #1C2A3A; --text-primary: #E0F2F7; --text-secondary: #C1D5E0; --accent-color: #06B6D4; --text-bg-color: #0E1420; --card-grad-1: #06B6D4; --card-grad-2: #1E1B2E; --card-grad-3: #A3E635;
 }
 [data-theme="quantum-purple"] {
-    --bg-color: #1E1B2E; --card-color: #2D2A42; --text-primary: #F3E8FF; --text-secondary: #E9D5FF; --accent-color: #C026D3; --text-bg-color: #1E1B2E;
+    --bg-color: #1E1B2E; --card-color: #2D2A42; --text-primary: #F3E8FF; --text-secondary: #E9D5FF; --accent-color: #C026D3; --text-bg-color: #1E1B2E; --card-grad-1: #C026D3; --card-grad-2: #0E1420; --card-grad-3: #F59E0B;
 }
 [data-theme="midnight-gold"] {
-    --bg-color: #111827; --card-color: #1F2937; --text-primary: #FEF3C7; --text-secondary: #D1D5DB; --accent-color: #FBBF24; --text-bg-color: #111827;
+    --bg-color: #111827; --card-color: #1F2937; --text-primary: #FEF3C7; --text-secondary: #D1D5DB; --accent-color: #FBBF24; --text-bg-color: #111827; --card-grad-1: #FBBF24; --card-grad-2: #1A2E29; --card-grad-3: #06B6D4;
 }
 [data-theme="slate-crimson"] {
-    --bg-color: #1E293B; --card-color: #334155; --text-primary: #F1F5F9; --text-secondary: #CBD5E1; --accent-color: #DC2626; --text-bg-color: #1E293B;
+    --bg-color: #1E293B; --card-color: #334155; --text-primary: #F1F5F9; --text-secondary: #CBD5E1; --accent-color: #DC2626; --text-bg-color: #1E293B; --card-grad-1: #DC2626; --card-grad-2: #111827; --card-grad-3: #A3E635;
 }
 [data-theme="forest-amber"] {
-    --bg-color: #1A2E29; --card-color: #2D423D; --text-primary: #FEFCE8; --text-secondary: #F0FDF4; --accent-color: #F59E0B; --text-bg-color: #1A2E29;
+    --bg-color: #1A2E29; --card-color: #2D423D; --text-primary: #FEFCE8; --text-secondary: #F0FDF4; --accent-color: #F59E0B; --text-bg-color: #1A2E29; --card-grad-1: #F59E0B; --card-grad-2: #111827; --card-grad-3: #06B6D4;
 }
 [data-theme="oceanic"] {
-    --bg-color: #001f3f; --card-color: #002b54; --text-primary: #E6F7FF; --text-secondary: #B3E5FC; --accent-color: #00BCD4; --text-bg-color: #001f3f;
+    --bg-color: #001f3f; --card-color: #002b54; --text-primary: #E6F7FF; --text-secondary: #B3E5FC; --accent-color: #00BCD4; --text-bg-color: #001f3f; --card-grad-1: #00BCD4; --card-grad-2: #1E1B2E; --card-grad-3: #FBBF24;
 }
 [data-theme="sunset"] {
-    --bg-color: #2c001e; --card-color: #4a0031; --text-primary: #FFD1D1; --text-secondary: #FFBDBD; --accent-color: #FF6B6B; --text-bg-color: #2c001e;
+    --bg-color: #2c001e; --card-color: #4a0031; --text-primary: #FFD1D1; --text-secondary: #FFBDBD; --accent-color: #FF6B6B; --text-bg-color: #2c001e; --card-grad-1: #FF6B6B; --card-grad-2: #111827; --card-grad-3: #FBBF24;
 }
 [data-theme="royal"] {
-    --bg-color: #23203B; --card-color: #3B375E; --text-primary: #E6E3FF; --text-secondary: #D4D0F5; --accent-color: #A69BEE; --text-bg-color: #23203B;
+    --bg-color: #23203B; --card-color: #3B375E; --text-primary: #E6E3FF; --text-secondary: #D4D0F5; --accent-color: #A69BEE; --text-bg-color: #23203B; --card-grad-1: #A69BEE; --card-grad-2: #1E1B2E; --card-grad-3: #06B6D4;
 }
 [data-theme="graphite"] {
-    --bg-color: #212121; --card-color: #333333; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FFAB00; --text-bg-color: #212121;
+    --bg-color: #212121; --card-color: #333333; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FFAB00; --text-bg-color: #212121; --card-grad-1: #FFAB00; --card-grad-2: #111827; --card-grad-3: #A3E635;
 }
 [data-theme="moss"] {
-    --bg-color: #2E332A; --card-color: #41473D; --text-primary: #F1F8E9; --text-secondary: #E6EE9C; --accent-color: #A5D6A7; --text-bg-color: #2E332A;
+    --bg-color: #2E332A; --card-color: #41473D; --text-primary: #F1F8E9; --text-secondary: #E6EE9C; --accent-color: #A5D6A7; --text-bg-color: #2E332A; --card-grad-1: #A5D6A7; --card-grad-2: #1A2E29; --card-grad-3: #F59E0B;
 }
 [data-theme="ruby"] {
-    --bg-color: #3E0000; --card-color: #5D0000; --text-primary: #FFEBEE; --text-secondary: #FFCDD2; --accent-color: #F44336; --text-bg-color: #3E0000;
+    --bg-color: #3E0000; --card-color: #5D0000; --text-primary: #FFEBEE; --text-secondary: #FFCDD2; --accent-color: #F44336; --text-bg-color: #3E0000; --card-grad-1: #F44336; --card-grad-2: #111827; --card-grad-3: #FBBF24;
 }
 [data-theme="sapphire"] {
-    --bg-color: #0D243E; --card-color: #1A3A5A; --text-primary: #E3F2FD; --text-secondary: #BBDEFB; --accent-color: #42A5F5; --text-bg-color: #0D243E;
+    --bg-color: #0D243E; --card-color: #1A3A5A; --text-primary: #E3F2FD; --text-secondary: #BBDEFB; --accent-color: #42A5F5; --text-bg-color: #0D243E; --card-grad-1: #42A5F5; --card-grad-2: #1E1B2E; --card-grad-3: #A3E635;
 }
 [data-theme="monochrome"] {
-    --bg-color: #111111; --card-color: #222222; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FFFFFF; --text-bg-color: #111111;
+    --bg-color: #111111; --card-color: #222222; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FFFFFF; --text-bg-color: #111111; --card-grad-1: #BBBBBB; --card-grad-2: #555555; --card-grad-3: #888888;
 }
 [data-theme="rose"] {
-    --bg-color: #3D1C2A; --card-color: #5C2A3F; --text-primary: #FCE4EC; --text-secondary: #F8BBD0; --accent-color: #EC407A; --text-bg-color: #3D1C2A;
+    --bg-color: #3D1C2A; --card-color: #5C2A3F; --text-primary: #FCE4EC; --text-secondary: #F8BBD0; --accent-color: #EC407A; --text-bg-color: #3D1C2A; --card-grad-1: #EC407A; --card-grad-2: #111827; --card-grad-3: #FBBF24;
 }
 [data-theme="earth"] {
-    --bg-color: #261F1A; --card-color: #3E322B; --text-primary: #FFF8F0; --text-secondary: #FFEFE0; --accent-color: #FF9800; --text-bg-color: #261F1A;
+    --bg-color: #261F1A; --card-color: #3E322B; --text-primary: #FFF8F0; --text-secondary: #FFEFE0; --accent-color: #FF9800; --text-bg-color: #261F1A; --card-grad-1: #FF9800; --card-grad-2: #4a0031; --card-grad-3: #06B6D4;
 }
 /* --- 20 New Palettes --- */
-[data-theme="solar-flare"] { --bg-color: #0A0A1A; --card-color: #1A1A2E; --text-primary: #FFF5E1; --text-secondary: #EAE0C8; --accent-color: #FF8C00; --text-bg-color: #0A0A1A; }
-[data-theme="deep-space"] { --bg-color: #000010; --card-color: #101028; --text-primary: #E0E6FF; --text-secondary: #C0C8E0; --accent-color: #50E3C2; --text-bg-color: #000010; }
-[data-theme="emerald-city"] { --bg-color: #0D2B1F; --card-color: #1A4D38; --text-primary: #E8FFF5; --text-secondary: #D0F0E0; --accent-color: #00FF7F; --text-bg-color: #0D2B1F; }
-[data-theme="vintage-teal"] { --bg-color: #2F4F4F; --card-color: #4A6A6A; --text-primary: #F5F5DC; --text-secondary: #D8D8C0; --accent-color: #CD853F; --text-bg-color: #2F4F4F; }
-[data-theme="crimson-night"] { --bg-color: #1A0000; --card-color: #330000; --text-primary: #FFDCDC; --text-secondary: #FFB0B0; --accent-color: #DC143C; --text-bg-color: #1A0000; }
-[data-theme="golden-dune"] { --bg-color: #FDF6E3; --card-color: #F5EFE0; --text-primary: #654321; --text-secondary: #8B6B4A; --accent-color: #D4AF37; --text-bg-color: #FFFFFF; }
-[data-theme="arctic-dawn"] { --bg-color: #F0F8FF; --card-color: #E6F2FF; --text-primary: #34495E; --text-secondary: #5D6D7E; --accent-color: #E6A4B4; --text-bg-color: #FFFFFF; }
-[data-theme="lavender-haze"] { --bg-color: #2E233F; --card-color: #43355A; --text-primary: #E6E0F8; --text-secondary: #D0C6E8; --accent-color: #C3B1E1; --text-bg-color: #2E233F; }
-[data-theme="olive-grove"] { --bg-color: #3D402C; --card-color: #55593F; --text-primary: #F0F2E6; --text-secondary: #D8DDC4; --accent-color: #B5B887; --text-bg-color: #3D402C; }
-[data-theme="coral-reef"] { --bg-color: #002347; --card-color: #003A6B; --text-primary: #FFEAE5; --text-secondary: #FFD2C9; --accent-color: #FF6F61; --text-bg-color: #002347; }
-[data-theme="volcanic-ash"] { --bg-color: #1C1C1C; --card-color: #333333; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FF4500; --text-bg-color: #1C1C1C; }
-[data-theme="sakura"] { --bg-color: #FFF0F5; --card-color: #FFE4E1; --text-primary: #5C3336; --text-secondary: #7A494D; --accent-color: #FFB7C5; --text-bg-color: #5C3336; }
-[data-theme="neptune"] { --bg-color: #0A1931; --card-color: #183351; --text-primary: #E0F2FF; --text-secondary: #B8DFFF; --accent-color: #3EDBF0; --text-bg-color: #0A1931; }
-[data-theme="tangerine"] { --bg-color: #331400; --card-color: #592500; --text-primary: #FFF0E6; --text-secondary: #FFDAB9; --accent-color: #F28500; --text-bg-color: #331400; }
-[data-theme="amethyst"] { --bg-color: #241933; --card-color: #3A2C4D; --text-primary: #F3EFFF; --text-secondary: #E0D2FF; --accent-color: #9966CC; --text-bg-color: #241933; }
-[data-theme="forest-floor"] { --bg-color: #1A140F; --card-color: #2E251E; --text-primary: #E1D9D1; --text-secondary: #C4B8AD; --accent-color: #778A35; --text-bg-color: #1A140F; }
-[data-theme="blueberry"] { --bg-color: #191970; --card-color: #2626A0; --text-primary: #E6E6FA; --text-secondary: #C0C0E1; --accent-color: #8A2BE2; --text-bg-color: #191970; }
-[data-theme="sandstone"] { --bg-color: #432F2B; --card-color: #6B4B43; --text-primary: #FFEBCD; --text-secondary: #F5DEB3; --accent-color: #E9967A; --text-bg-color: #432F2B; }
-[data-theme="steel"] { --bg-color: #2B303A; --card-color: #404854; --text-primary: #D8DEE9; --text-secondary: #BCC8DC; --accent-color: #88C0D0; --text-bg-color: #2B303A; }
-[data-theme="cherry-blossom"] { --bg-color: #4C0013; --card-color: #6F001C; --text-primary: #FFD9E2; --text-secondary: #FFB0C1; --accent-color: #DE3163; --text-bg-color: #4C0013; }
+[data-theme="solar-flare"] { --bg-color: #0A0A1A; --card-color: #1A1A2E; --text-primary: #FFF5E1; --text-secondary: #EAE0C8; --accent-color: #FF8C00; --text-bg-color: #0A0A1A; --card-grad-1: #FF8C00; --card-grad-2: #330000; --card-grad-3: #50E3C2; }
+[data-theme="deep-space"] { --bg-color: #000010; --card-color: #101028; --text-primary: #E0E6FF; --text-secondary: #C0C8E0; --accent-color: #50E3C2; --text-bg-color: #000010; --card-grad-1: #50E3C2; --card-grad-2: #0A0A1A; --card-grad-3: #C3B1E1; }
+[data-theme="emerald-city"] { --bg-color: #0D2B1F; --card-color: #1A4D38; --text-primary: #E8FFF5; --text-secondary: #D0F0E0; --accent-color: #00FF7F; --text-bg-color: #0D2B1F; --card-grad-1: #00FF7F; --card-grad-2: #0A0A1A; --card-grad-3: #B5B887; }
+[data-theme="vintage-teal"] { --bg-color: #2F4F4F; --card-color: #4A6A6A; --text-primary: #F5F5DC; --text-secondary: #D8D8C0; --accent-color: #CD853F; --text-bg-color: #2F4F4F; --card-grad-1: #CD853F; --card-grad-2: #3D402C; --card-grad-3: #8B6B4A; }
+[data-theme="crimson-night"] { --bg-color: #1A0000; --card-color: #330000; --text-primary: #FFDCDC; --text-secondary: #FFB0B0; --accent-color: #DC143C; --text-bg-color: #1A0000; --card-grad-1: #DC143C; --card-grad-2: #0A0A1A; --card-grad-3: #FF8C00; }
+[data-theme="golden-dune"] { --bg-color: #FDF6E3; --card-color: #F5EFE0; --text-primary: #654321; --text-secondary: #8B6B4A; --accent-color: #D4AF37; --text-bg-color: #FFFFFF; --card-grad-1: #D4AF37; --card-grad-2: #F5EFE0; --card-grad-3: #CD853F; }
+[data-theme="arctic-dawn"] { --bg-color: #F0F8FF; --card-color: #E6F2FF; --text-primary: #34495E; --text-secondary: #5D6D7E; --accent-color: #E6A4B4; --text-bg-color: #FFFFFF; --card-grad-1: #E6A4B4; --card-grad-2: #F0F8FF; --card-grad-3: #B0C4DE; }
+[data-theme="lavender-haze"] { --bg-color: #2E233F; --card-color: #43355A; --text-primary: #E6E0F8; --text-secondary: #D0C6E8; --accent-color: #C3B1E1; --text-bg-color: #2E233F; --card-grad-1: #C3B1E1; --card-grad-2: #101028; --card-grad-3: #8A2BE2; }
+[data-theme="olive-grove"] { --bg-color: #3D402C; --card-color: #55593F; --text-primary: #F0F2E6; --text-secondary: #D8DDC4; --accent-color: #B5B887; --text-bg-color: #3D402C; --card-grad-1: #B5B887; --card-grad-2: #2F4F4F; --card-grad-3: #778A35; }
+[data-theme="coral-reef"] { --bg-color: #002347; --card-color: #003A6B; --text-primary: #FFEAE5; --text-secondary: #FFD2C9; --accent-color: #FF6F61; --text-bg-color: #002347; --card-grad-1: #FF6F61; --card-grad-2: #330000; --card-grad-3: #F28500; }
+[data-theme="volcanic-ash"] { --bg-color: #1C1C1C; --card-color: #333333; --text-primary: #FFFFFF; --text-secondary: #E0E0E0; --accent-color: #FF4500; --text-bg-color: #1C1C1C; --card-grad-1: #FF4500; --card-grad-2: #0A0A1A; --card-grad-3: #DC143C; }
+[data-theme="sakura"] { --bg-color: #FFF0F5; --card-color: #FFE4E1; --text-primary: #5C3336; --text-secondary: #7A494D; --accent-color: #FFB7C5; --text-bg-color: #5C3336; --card-grad-1: #FFB7C5; --card-grad-2: #FFE4E1; --card-grad-3: #E6A4B4; }
+[data-theme="neptune"] { --bg-color: #0A1931; --card-color: #183351; --text-primary: #E0F2FF; --text-secondary: #B8DFFF; --accent-color: #3EDBF0; --text-bg-color: #0A1931; --card-grad-1: #3EDBF0; --card-grad-2: #101028; --card-grad-3: #50E3C2; }
+[data-theme="tangerine"] { --bg-color: #331400; --card-color: #592500; --text-primary: #FFF0E6; --text-secondary: #FFDAB9; --accent-color: #F28500; --text-bg-color: #331400; --card-grad-1: #F28500; --card-grad-2: #1A0000; --card-grad-3: #FF8C00; }
+[data-theme="amethyst"] { --bg-color: #241933; --card-color: #3A2C4D; --text-primary: #F3EFFF; --text-secondary: #E0D2FF; --accent-color: #9966CC; --text-bg-color: #241933; --card-grad-1: #9966CC; --card-grad-2: #101028; --card-grad-3: #C3B1E1; }
+[data-theme="forest-floor"] { --bg-color: #1A140F; --card-color: #2E251E; --text-primary: #E1D9D1; --text-secondary: #C4B8AD; --accent-color: #778A35; --text-bg-color: #1A140F; --card-grad-1: #778A35; --card-grad-2: #3D402C; --card-grad-3: #B5B887; }
+[data-theme="blueberry"] { --bg-color: #191970; --card-color: #2626A0; --text-primary: #E6E6FA; --text-secondary: #C0C0E1; --accent-color: #8A2BE2; --text-bg-color: #191970; --card-grad-1: #8A2BE2; --card-grad-2: #101028; --card-grad-3: #9966CC; }
+[data-theme="sandstone"] { --bg-color: #432F2B; --card-color: #6B4B43; --text-primary: #FFEBCD; --text-secondary: #F5DEB3; --accent-color: #E9967A; --text-bg-color: #432F2B; --card-grad-1: #E9967A; --card-grad-2: #2F4F4F; --card-grad-3: #CD853F; }
+[data-theme="steel"] { --bg-color: #2B303A; --card-color: #404854; --text-primary: #D8DEE9; --text-secondary: #BCC8DC; --accent-color: #88C0D0; --text-bg-color: #2B303A; --card-grad-1: #88C0D0; --card-grad-2: #2F4F4F; --card-grad-3: #B0C4DE; }
+[data-theme="cherry-blossom"] { --bg-color: #4C0013; --card-color: #6F001C; --text-primary: #FFD9E2; --text-secondary: #FFB0C1; --accent-color: #DE3163; --text-bg-color: #4C0013; --card-grad-1: #DE3163; --card-grad-2: #330000; --card-grad-3: #FF6F61; }
 /* --- 5 New Light Palettes --- */
-[data-theme="minty-breeze"] { --bg-color: #F0FFF0; --card-color: #E6F9E6; --text-primary: #2E4636; --text-secondary: #4A6D55; --accent-color: #7FFFD4; --text-bg-color: #2E4636; }
-[data-theme="peach-sorbet"] { --bg-color: #FFF5EE; --card-color: #FFEADB; --text-primary: #5D4037; --text-secondary: #795548; --accent-color: #FFDAB9; --text-bg-color: #5D4037; }
-[data-theme="sky-blue"] { --bg-color: #F0F8FF; --card-color: #E6F2FF; --text-primary: #2C3E50; --text-secondary: #46637F; --accent-color: #87CEEB; --text-bg-color: #FFFFFF; }
-[data-theme="lilac-dream"] { --bg-color: #F8F0FF; --card-color: #F2E6FF; --text-primary: #4B3A59; --text-secondary: #6A537D; --accent-color: #D8BFD8; --text-bg-color: #4B3A59; }
-[data-theme="misty-gray"] { --bg-color: #F5F5F5; --card-color: #EBEBEB; --text-primary: #363636; --text-secondary: #555555; --accent-color: #B0C4DE; --text-bg-color: #363636; }
-
-/* --- Palette Switcher (Debug) --- */
-.palette-switcher {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    border-radius: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    max-width: 200px;
-    z-index: 200;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.palette-btn {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-}
-
-.palette-btn:hover {
-    transform: scale(1.2);
-    border-color: white;
-}
-
-@media (max-width: 1024px) {
-    .palette-switcher {
-        max-width: 120px;
-    }
-}
-
-@media (max-width: 767px) {
-    .palette-switcher {
-        display: none; /* Hide on mobile to save space */
-    }
-}
+[data-theme="minty-breeze"] { --bg-color: #F0FFF0; --card-color: #E6F9E6; --text-primary: #2E4636; --text-secondary: #4A6D55; --accent-color: #7FFFD4; --text-bg-color: #2E4636; --card-grad-1: #7FFFD4; --card-grad-2: #F0FFF0; --card-grad-3: #87CEEB; }
+[data-theme="peach-sorbet"] { --bg-color: #FFF5EE; --card-color: #FFEADB; --text-primary: #5D4037; --text-secondary: #795548; --accent-color: #FFDAB9; --text-bg-color: #5D4037; --card-grad-1: #FFDAB9; --card-grad-2: #FFF5EE; --card-grad-3: #FFB7C5; }
+[data-theme="sky-blue"] { --bg-color: #F0F8FF; --card-color: #E6F2FF; --text-primary: #2C3E50; --text-secondary: #46637F; --accent-color: #87CEEB; --text-bg-color: #FFFFFF; --card-grad-1: #87CEEB; --card-grad-2: #F0F8FF; --card-grad-3: #B0C4DE; }
+[data-theme="lilac-dream"] { --bg-color: #F8F0FF; --card-color: #F2E6FF; --text-primary: #4B3A59; --text-secondary: #6A537D; --accent-color: #D8BFD8; --text-bg-color: #4B3A59; --card-grad-1: #D8BFD8; --card-grad-2: #F8F0FF; --card-grad-3: #E6A4B4; }
+[data-theme="misty-gray"] { --bg-color: #F5F5F5; --card-color: #EBEBEB; --text-primary: #363636; --text-secondary: #555555; --accent-color: #B0C4DE; --text-bg-color: #363636; --card-grad-1: #B0C4DE; --card-grad-2: #F5F5F5; --card-grad-3: #D8DEE9; }
 
 /* --- Skill Cloud --- */
 #skill-cloud-container {
@@ -149,6 +104,15 @@
     align-items: center;
     min-height: 400px;
     perspective: 1000px;
+}
+
+/* Make skill cloud responsive on smaller screens */
+@media (max-width: 767px) {
+    #skill-cloud-container {
+        min-height: 350px; /* Reduce height on mobile */
+        perspective: 800px; /* Adjust perspective for smaller size */
+        transform: scale(0.8); /* Scale down the entire container */
+    }
 }
 
 .skill-cloud {
@@ -292,12 +256,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .side-bar-left {
     /* This sidebar is now empty */
-    position: absolute; /* Scrolls with page */
+    position: fixed; /* Stays in place on scroll */
     left: 0;
 }
 
 .side-bar-right {
-    position: absolute; /* Scrolls with page */
+    position: fixed; /* Stays in place on scroll */
     right: 0;
 }
 
@@ -422,24 +386,28 @@ nav a:hover {
 .achievement-card {
     position: relative;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
+    /* background-image is now removed in favor of gradients on the ::before pseudo-element */
     box-shadow: var(--shadow);
     border-radius: 0.5rem;
+    background-color: var(--card-color); /* Default background */
+    transition: transform 0.3s ease;
 }
-.achievement-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(11, 11, 11, 0.8); /* Dark overlay */
-    transition: background-color 0.3s ease;
+
+.achievement-card:hover {
+    transform: translateY(-5px);
 }
-.achievement-card:hover::before {
-    background-color: rgba(11, 11, 11, 0.6); /* Lighten overlay on hover */
+
+/* Apply the selected gradient directly to the card's background */
+#achievements-container .achievement-card:nth-child(3n+1) {
+    background-image: linear-gradient(135deg, var(--card-grad-1), var(--card-grad-2));
 }
+#achievements-container .achievement-card:nth-child(3n+2) {
+    background-image: linear-gradient(135deg, var(--card-grad-2), var(--card-grad-3));
+}
+#achievements-container .achievement-card:nth-child(3n+3) {
+    background-image: linear-gradient(135deg, var(--card-grad-3), var(--card-grad-1));
+}
+
 .achievement-card-content {
     position: relative;
     z-index: 2;

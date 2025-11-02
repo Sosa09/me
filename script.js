@@ -10,34 +10,36 @@ async function loadData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         portfolioData = await response.json();
-        renderAchievements();
-        renderSkillCloud(); // Move skill cloud rendering here to ensure data is loaded
+        renderAchievements(); // Render achievements with fetched data
+        renderSkillCloud();   // Render skills with fetched data
     } catch (error) {
         console.error("Could not load portfolio data:", error);
-        // Optionally display an error message to the user
-        const achievementsContainer = document.getElementById('achievements-container');
-        if(achievementsContainer) achievementsContainer.innerHTML = '<p class="text-red-500 text-center col-span-full">Could not load achievements.</p>';
+        renderSkillCloud(); // If fetch fails, render skill cloud with its own dummy data
     }
 }
 
 // Function to render achievements
 function renderAchievements() {
     const container = document.getElementById('achievements-container');
-    if (!container || !portfolioData || !portfolioData.achievements) return;
+    if (!container) return;
 
-    container.innerHTML = ''; // Clear existing content
+    container.innerHTML = ''; // Clear existing content, if any
 
-    portfolioData.achievements.forEach(ach => {
+    // Use achievements from portfolioData, or an empty array as a fallback.
+    const achievements = (portfolioData && portfolioData.achievements) ? portfolioData.achievements : [];
+
+    if (achievements.length === 0) {
+        console.warn("No achievements found in data.json or data failed to load.");
+    }
+
+    achievements.forEach(ach => {
         const card = document.createElement('div');
         card.className = 'achievement-card';
-        // Use placeholder images based on category or a default
-        let imageUrl = ach.imageUrl || `https://placehold.co/600x400/${getComputedStyle(document.documentElement).getPropertyValue('--bg-color').substring(1)}/${getComputedStyle(document.documentElement).getPropertyValue('--accent-color').substring(1)}?text=${ach.category}&font=chivo-mono`;
-        card.style.backgroundImage = `url('${imageUrl}')`;
-
         card.innerHTML = `
             <div class="achievement-card-content p-6 min-h-[180px] flex flex-col justify-center">
-                <h4 class="text-lg font-bold accent-text">${ach.title}</h4>
-                <p class="mt-2 text-slate opacity-90">${ach.description}</p>
+                <span class="text-sm font-bold accent-text uppercase tracking-widest">${ach.category}</span>
+                <h4 class="mt-2 text-xl font-bold">${ach.title}</h4>
+                <p class="mt-3 text-base opacity-80">${ach.description}</p>
             </div>
         `;
         container.appendChild(card);
@@ -57,16 +59,6 @@ function renderSkillCloud() {
         skillsData = portfolioData.skills.map(skill => ({
             name: skill,
             definition: `Definition for ${skill}.` // Generic definition
-        }));
-    } else {
-        // Fallback to dummy skills if data.json is empty or fails to load
-        console.warn("Skills not found in data.json, using dummy skills.");
-        skillsData = [
-            { name: "Dummy Skill 1", definition: "This is a fallback skill." },
-            { name: "Dummy Skill 2", definition: "This is a fallback skill." },
-            { name: "Dummy Skill 3", definition: "This is a fallback skill." },
-            { name: "Dummy Skill 4", definition: "This is a fallback skill." },
-            { name: "Dummy Skill 5", definition: "This is a fallback skill." }
         ];
     }
 
@@ -124,10 +116,6 @@ function renderSkillCloud() {
         });
         cloud.appendChild(tag);
     });
-
-    // Add event listeners to the main container to pause the cloud rotation
-    container.addEventListener('mouseover', () => cloud.style.animationPlayState = 'paused');
-    container.addEventListener('mouseout', () => cloud.style.animationPlayState = 'running');
 }
 // --- End Data Loading and Rendering ---
 
