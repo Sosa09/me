@@ -135,6 +135,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- End Sticky Header Logic ---
 
+    // --- Mobile Menu Logic ---
+    const burgerBtn = document.getElementById('burger-menu-btn');
+    const closeMenuBtn = document.getElementById('close-mobile-menu-btn');
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    const openMobileMenu = () => {
+        mobileMenuPanel.classList.add('is-open');
+        mobileMenuOverlay.style.visibility = 'visible';
+        mobileMenuOverlay.style.opacity = '1';
+    };
+    const closeMobileMenu = () => {
+        mobileMenuPanel.classList.remove('is-open');
+        mobileMenuOverlay.style.opacity = '0';
+        setTimeout(() => { mobileMenuOverlay.style.visibility = 'hidden'; }, 300);
+    };
+
+    if (burgerBtn && mobileMenuPanel) {
+        burgerBtn.addEventListener('click', openMobileMenu);
+    }
+    if (closeMenuBtn && mobileMenuPanel) {
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+    }
+    // Close menu when overlay is clicked
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    }
+    // Close menu when a link is clicked
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    // --- End Mobile Menu Logic ---
+
     const overlay = document.getElementById('contact-form-overlay');
     const openBtn1 = document.getElementById('open-contact-form');
     const openBtn2 = document.getElementById('open-contact-form-2');

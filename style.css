@@ -303,6 +303,94 @@ header.scrolled {
     fill: var(--text-primary);
 }
 
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(11, 11, 11, 0.6);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+/* Mobile Menu */
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(62, 50, 43, 0.95); /* var(--card-color) with opacity */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu-panel.is-open {
+    right: 0; /* Slide in */
+}
+
+.mobile-menu-link {
+    font-family: 'Chivo Mono', monospace;
+    color: var(--text-secondary);
+    font-size: 1.125rem; /* 18px */
+    padding: 0.75rem 1rem;
+    display: block;
+    text-align: left;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 6px;
+}
+
+.mobile-menu-link:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* 24px */
+}
+
+.mobile-menu-socials a svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-secondary);
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu-socials a:hover svg {
+    fill: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.mobile-menu-email {
+    font-family: 'Chivo Mono', monospace;
+    color: var(--text-secondary);
+    font-size: 0.875rem; /* 14px */
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-email:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+
+
 /* Base Card Style */
 .styled-card {
     background-color: var(--card-color);
