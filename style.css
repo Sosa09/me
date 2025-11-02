@@ -108,10 +108,24 @@
 
 /* Make skill cloud responsive on smaller screens */
 @media (max-width: 767px) {
+    /* On mobile, transform the 3D sphere into a 2D tag wall for better performance and readability */
     #skill-cloud-container {
-        min-height: 350px; /* Reduce height on mobile */
-        perspective: 800px; /* Adjust perspective for smaller size */
-        transform: scale(0.8); /* Scale down the entire container */
+        min-height: auto; /* Let content define height */
+        perspective: none; /* Remove 3D perspective */
+        transform: none; /* Remove scaling */
+        padding: 1rem 0;
+    }
+
+    .skill-cloud {
+        position: static; /* Remove absolute positioning */
+        width: 100%;
+        height: auto;
+        transform-style: flat; /* Change to 2D rendering */
+        animation: none; /* Stop cloud rotation */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 }
 
@@ -122,6 +136,21 @@
     transform-style: preserve-3d;
     /* Add a slow rotation to the whole cloud */
     animation: cloud-rotate 120s linear infinite;
+}
+
+@media (max-width: 767px) {
+    .skill-tag {
+        position: static; /* Remove absolute positioning */
+        transform: none !important; /* Remove all transforms */
+        animation: none !important; /* Stop drifting animation */
+        background-color: var(--card-color);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    .skill-tag-text {
+        animation: none; /* Stop text un-rotation */
+    }
 }
 
 .skill-tag {
@@ -198,6 +227,11 @@
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 20;
+}
+@media (max-width: 767px) {
+    .skill-definition-tooltip {
+        display: none; /* Hide tooltip on mobile as there's no hover */
+    }
 }
 
 .fallback-skill {
@@ -395,17 +429,6 @@ nav a:hover {
 
 .achievement-card:hover {
     transform: translateY(-5px);
-}
-
-/* Apply the selected gradient directly to the card's background */
-#achievements-container .achievement-card:nth-child(3n+1) {
-    background-image: linear-gradient(135deg, var(--card-grad-1), var(--card-grad-2));
-}
-#achievements-container .achievement-card:nth-child(3n+2) {
-    background-image: linear-gradient(135deg, var(--card-grad-2), var(--card-grad-3));
-}
-#achievements-container .achievement-card:nth-child(3n+3) {
-    background-image: linear-gradient(135deg, var(--card-grad-3), var(--card-grad-1));
 }
 
 .achievement-card-content {
