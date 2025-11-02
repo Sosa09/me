@@ -263,6 +263,46 @@ nav a:hover {
     color: var(--accent-color);
 }
 
+/* Header & Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 1.5rem 2rem; /* Consistent padding */
+    transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+header.scrolled {
+    background-color: rgba(62, 50, 43, 0.85); /* var(--card-color) with opacity */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust main content padding to avoid overlap with fixed header */
+#main-content {
+    padding-top: 100px; /* Provides space for the fixed header */
+}
+
+/* Logo Styling */
+.logo a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+.logo svg {
+    height: 32px; /* Adjust size as needed */
+    width: auto;
+}
+.logo .logo-fill {
+    fill: var(--text-primary);
+}
+
 /* Base Card Style */
 .styled-card {
     background-color: var(--card-color);

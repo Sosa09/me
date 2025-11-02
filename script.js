@@ -122,6 +122,19 @@ function renderSkillCloud() {
 // --- Contact Form Modal Logic ---
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Sticky Header Logic ---
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Add 'scrolled' class after 50px of scrolling
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+    // --- End Sticky Header Logic ---
+
     const overlay = document.getElementById('contact-form-overlay');
     const openBtn1 = document.getElementById('open-contact-form');
     const openBtn2 = document.getElementById('open-contact-form-2');
