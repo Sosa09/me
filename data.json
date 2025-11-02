@@ -1,22 +1,16 @@
 {
   "achievements": [
     {
-      "category": "Code",
       "title": "Formal Certifications",
-      "description": "PCEP (Certified Python Programmer), Linux Essentials.",
-      "imageUrl": "https://placehold.co/600x400/0B0B0B/F0E6D1?text=Code&font=chivo-mono"
+      "description": "PCEP (Certified Python Programmer), Linux Essentials."
     },
     {
-      "category": "Hardware",
       "title": "Foundational Knowledge",
-      "description": "Strong, hands-on knowledge of Windows Systems and Hardware, developed through extensive training, including the CompTIA curriculum.",
-      "imageUrl": "https://placehold.co/600x400/0B0B0B/F0E6D1?text=Hardware&font=chivo-mono"
+      "description": "Very strong knowledge of networking fundamentals, with foundational expertise across Windows & Linux systems, cloud platforms like Azure, programming (Python, C#), and web development. This broad skillset, including configuring servers like Apache, is built on extensive training, including the CompTIA curriculum."
     },
     {
-      "category": "Cloud",
-      "title": "Commitment to Growth",
-      "description": "Actively pursuing the full DevOps certification roadmap, starting with Azure Fundamentals, to ensure my skills are always cutting-edge and cloud-ready.",
-      "imageUrl": "https://placehold.co/600x400/0B0B0B/F0E6D1?text=Cloud&font=chivo-mono"
+      "title": "Driven by Curiosity",
+      "description": "I'm constantly exploring new tools and methodologies to find smarter, more efficient ways to solve complex problems and stay ahead of the curve."
     }
   ],
   "skills": [
