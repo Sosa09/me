@@ -175,9 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalBody = document.getElementById('terminal-body');
 
     const formHTML = `
-        <form class="terminal-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="apikey" value="YOUR_WEB3FORMS_API_KEY">
-            <input type="hidden" name="subject" value="New Contact Message from your Portfolio">
+        <form class="terminal-form" action="send_email.php" method="POST">
             <div class="form-group">
                 <label for="name"><span class="terminal-prompt">>$</span> Enter your name:</label>
                 <input type="text" id="name" name="name" required>
@@ -294,21 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const form = e.target;
 
-        // --- EDIT: Add your public key from web3forms.com ---
-        const apiKey = "YOUR_WEB3FORMS_API_KEY"; // <-- PUT YOUR KEY HERE
-        if (apiKey === "YOUR_WEB3FORMS_API_KEY") {
-            terminalBody.innerHTML = `
-                <p class="text-red-500">Error: Form not configured.</p>
-                <p>Please add your Web3Forms API key in script.js (around line 340).</p>
-                <br>
-                <button type="button" id="close-contact-form" class="terminal-btn go-back">close()</button>
-            `;
-            const newCloseBtn = document.getElementById('close-contact-form');
-            if (newCloseBtn) newCloseBtn.addEventListener('click', closeModal);
-            return;
-        }
-
-        form.querySelector('input[name="apikey"]').value = apiKey;
         const formData = new FormData(form);
 
         terminalBody.innerHTML = `

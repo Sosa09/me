@@ -1,6 +1,6 @@
 <?php
 // Set the recipient email address (Your professional email hosted on Hostinger)
-$receiving_email_address = 'soufiane.arrazouki@hotmail.com'; // CHANGE THIS TO YOUR HOSTINGER-CONFIGURED EMAIL
+$receiving_email_address = 'me@soufianearrazouki.com'; // CHANGE THIS TO YOUR HOSTINGER-CONFIGURED EMAIL
 
 // Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
