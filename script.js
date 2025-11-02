@@ -59,7 +59,7 @@ function renderSkillCloud() {
         skillsData = portfolioData.skills.map(skill => ({
             name: skill,
             definition: `Definition for ${skill}.` // Generic definition
-        ];
+        }));
     }
 
     const radius = 250; // Increased radius to spread skills out more
