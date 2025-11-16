@@ -361,7 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <br>
                 <p>Sending message...</p>
                 <p class="text-red-500">Error: Message failed to send.</p>
-                <p>${error.message || 'Please try again later.'}</p>
                 <p>You can also email me directly at <a href="mailto:me@soufianearrazouki.com" class="accent-text">me@soufianearrazouki.com</a>.</p>
                 <p class="text-red-500">Error: ${error.message}.</p>
                 <br>
