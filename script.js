@@ -58,7 +58,8 @@ function renderSkillCloud() {
         // If skills exist in data.json, map them to the required object structure
         skillsData = portfolioData.skills.map(skill => ({
             name: skill,
-            definition: 
+            definition: definitions[skill] || `Definition for ${skill} not found.`
+        }));
     }
 
     const radius = 250; // Increased radius to spread skills out more
@@ -361,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Sending message...</p>
                 <p class="text-red-500">Error: Message failed to send.</p>
                 <p>${error.message || 'Please try again later.'}</p>
-                <p>Sending message... <span class="text-red-500">failed.</span></p>
+                <p>You can also email me directly at <a href="mailto:me@soufianearrazouki.com" class="accent-text">me@soufianearrazouki.com</a>.</p>
                 <p class="text-red-500">Error: ${error.message}.</p>
                 <br>
                 <p class="text-yellow-400">This is a client-side error, often caused by one of two things:</p>
