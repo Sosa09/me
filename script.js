@@ -1,20 +1,26 @@
 // --- Data Loading and Rendering ---
 let portfolioData = null; // To store fetched data
+let skillsData = null; // To store skills data
 let sliderInitialized = false; // Flag to prevent multiple initializations
 
 // Function to fetch data from JSON
 async function loadData() {
     try {
-        const response = await fetch('data.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        portfolioData = await response.json();
+        const [achievementsResponse, skillsResponse] = await Promise.all([
+            fetch('data.json'),
+            fetch('skills.json')
+        ]);
+        if (!achievementsResponse.ok) throw new Error(`HTTP error! status: ${achievementsResponse.status}`);
+        if (!skillsResponse.ok) throw new Error(`HTTP error! status: ${skillsResponse.status}`);
+
+        portfolioData = await achievementsResponse.json();
+        skillsData = await skillsResponse.json();
+
         renderAchievements(); // Render achievements with fetched data
-        renderSkillCloud();   // Render skills with fetched data
+        renderSkills(); // Render structured skills by default
+        renderSkillCloud(); // Also render the cloud, but it will be hidden initially
     } catch (error) {
         console.error("Could not load portfolio data:", error);
-        renderSkillCloud(); // If fetch fails, render skill cloud with its own dummy data
     }
 }
 
@@ -23,8 +29,7 @@ function renderAchievements() {
     const container = document.getElementById('achievements-container');
     if (!container) return;
 
-    container.innerHTML = ''; // Clear existing content, if any
-
+    container.innerHTML = ''; // Clear existing content
     // Use achievements from portfolioData, or an empty array as a fallback.
     const achievements = (portfolioData && portfolioData.achievements) ? portfolioData.achievements : [];
 
@@ -45,26 +50,95 @@ function renderAchievements() {
     });
 }
 
-// Function to render the skill cloud
+// Function to render the new categorized skills section
+function renderSkills() {
+    const container = document.getElementById('skills-container');
+    if (!container) return;
+
+    // Create a single, shared tooltip for notes
+    const notesTooltip = document.createElement('div');
+    notesTooltip.id = 'skill-notes-tooltip';
+    notesTooltip.className = 'skill-notes-tooltip';
+    document.body.appendChild(notesTooltip);
+
+    container.innerHTML = ''; // Clear fallback skills
+
+    const categories = (skillsData && skillsData.skillCategories) ? skillsData.skillCategories : [];
+
+    if (categories.length === 0) {
+        container.textContent = 'Skills data could not be loaded.';
+        return;
+    }
+
+    categories.forEach(category => {
+        const categoryWrapper = document.createElement('div');
+        categoryWrapper.className = 'skill-category-card';
+
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.className = 'skill-category-title';
+        categoryTitle.textContent = category.category;
+        categoryWrapper.appendChild(categoryTitle);
+
+        const skillsGrid = document.createElement('div');
+        skillsGrid.className = 'skills-grid';
+
+        category.skills.forEach(skill => {
+            const skillCard = document.createElement('div');
+            skillCard.className = 'skill-card';
+            skillCard.innerHTML = `
+                <span class="skill-card-name">${skill.name}</span>
+                <div class="skill-card-proficiency-bg">
+                    <div class="skill-card-proficiency-fg" style="width: ${skill.proficiency * 20}%"></div>
+                </div>
+            `;
+
+            // Show tooltip on hover
+            skillCard.addEventListener('mouseenter', (e) => {
+                notesTooltip.textContent = skill.notes;
+                notesTooltip.classList.add('is-visible');
+
+                const rect = e.currentTarget.getBoundingClientRect();
+                notesTooltip.style.left = `${rect.left + rect.width / 2}px`;
+                notesTooltip.style.top = `${rect.top - 10}px`;
+            });
+
+            // Hide tooltip on mouse leave
+            skillCard.addEventListener('mouseleave', () => {
+                notesTooltip.classList.remove('is-visible');
+            });
+
+            skillsGrid.appendChild(skillCard);
+        });
+
+        categoryWrapper.appendChild(skillsGrid);
+        container.appendChild(categoryWrapper);
+    });
+}
+
+// Function to render the animated skill cloud
 function renderSkillCloud() {
     const container = document.getElementById('skill-cloud-container');
     if (!container) return;
 
-    container.innerHTML = ''; // Clear fallback skills
+    container.innerHTML = ''; // Clear content
 
-    let skillsData = [];
-    if (portfolioData && portfolioData.skills && portfolioData.skills.length > 0) {
-        const definitions = portfolioData.skillDefinitions || {};
-        // If skills exist in data.json, map them to the required object structure
-        skillsData = portfolioData.skills.map(skill => ({
-            name: skill,
-            definition: definitions[skill] || `Definition for ${skill} not found.`
-        }));
+    let cloudSkills = [];
+    // Use the detailed skills.json as the source for the cloud view for consistency
+    if (skillsData && skillsData.skillCategories) {
+        skillsData.skillCategories.forEach(category => {
+            category.skills.forEach(skill => {
+                cloudSkills.push({
+                    name: skill.name,
+                    definition: skill.notes // Use the detailed notes for the tooltip
+                });
+            });
+        });
     }
 
-    const radius = 250; // Increased radius to spread skills out more
+    if (cloudSkills.length === 0) return;
 
-    // Create a single tooltip element that will be shared
+    const radius = 250;
+
     const tooltip = document.createElement('div');
     tooltip.className = 'skill-definition-tooltip';
     container.appendChild(tooltip);
@@ -73,43 +147,34 @@ function renderSkillCloud() {
     cloud.className = 'skill-cloud';
     container.appendChild(cloud);
 
-    skillsData.forEach((skill, i) => {
+    cloudSkills.forEach((skill, i) => {
         const tag = document.createElement('span');
         tag.className = 'skill-tag';
-
-        // Create an inner span for the text to prevent it from flipping
         const textSpan = document.createElement('span');
         textSpan.className = 'skill-tag-text';
         textSpan.textContent = skill.name;
         tag.appendChild(textSpan);
-
         tag.dataset.definition = skill.definition;
 
-        // Distribute points evenly on a sphere using Fibonacci lattice
-        const phi = Math.acos(-1 + (2 * i) / skillsData.length);
-        const theta = Math.sqrt(skillsData.length * Math.PI) * phi;
-
+        const phi = Math.acos(-1 + (2 * i) / cloudSkills.length);
+        const theta = Math.sqrt(cloudSkills.length * Math.PI) * phi;
         const x = radius * Math.cos(theta) * Math.sin(phi);
         const y = radius * Math.sin(theta) * Math.sin(phi);
         const z = radius * Math.cos(phi);
 
-        // Set custom properties for the animation to use
         tag.style.setProperty('--x', `${x}px`);
         tag.style.setProperty('--y', `${y}px`);
         tag.style.setProperty('--z', `${z}px`);
 
-        // Apply a random animation to each tag for individual movement
-        const duration = 30 + Math.random() * 30; // Random duration between 30s and 60s
-        const delay = Math.random() * -60; // Random negative delay
+        const duration = 30 + Math.random() * 30;
+        const delay = Math.random() * -60;
         tag.style.animation = `skill-drift ${duration}s ease-in-out ${delay}s infinite alternate`;
 
-        // Event listeners for showing the tooltip on skill hover
         tag.addEventListener('mouseover', () => {
             tooltip.textContent = tag.dataset.definition;
             tooltip.style.visibility = 'visible';
             tooltip.style.opacity = '1';
         });
-
         tag.addEventListener('mouseout', () => {
             tooltip.style.visibility = 'hidden';
             tooltip.style.opacity = '0';
@@ -118,8 +183,6 @@ function renderSkillCloud() {
     });
 }
 // --- End Data Loading and Rendering ---
-
-// --- Contact Form Modal Logic ---
 
 // --- Smooth Scroll Logic ---
 function smoothScroll(event) {
@@ -159,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', smoothScroll);
     });
     // --- End Smooth Scroll ---
-    // --- End Sticky Header Logic ---
 
     // --- Mobile Menu Logic ---
     const burgerBtn = document.getElementById('burger-menu-btn');
@@ -195,6 +257,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // --- End Mobile Menu Logic ---
 
+    // --- Interchangeable Skills View Toggle Logic ---
+    const toggleBtn = document.getElementById('skill-view-toggle-btn');
+    const listContainer = document.getElementById('skills-container');
+    const cloudContainer = document.getElementById('skill-cloud-container');
+
+    if (toggleBtn && listContainer && cloudContainer) {
+        let currentView = 'cloud'; // Default view
+
+        const icons = {
+            list: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>`,
+            cloud: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" /></svg>`
+        };
+
+        // Set initial state
+        toggleBtn.innerHTML = icons.list; // Show icon to switch to 'list'
+
+        toggleBtn.addEventListener('click', () => {
+            if (currentView === 'cloud') {
+                // Switch to list view
+                cloudContainer.classList.add('hidden');
+                listContainer.classList.remove('hidden');
+                toggleBtn.innerHTML = icons.cloud; // Show icon to switch back to 'cloud'
+                toggleBtn.setAttribute('aria-label', 'Switch to cloud view');
+                currentView = 'list';
+            } else {
+                // Switch to cloud view
+                listContainer.classList.add('hidden');
+                cloudContainer.classList.remove('hidden');
+                toggleBtn.innerHTML = icons.list; // Show icon to switch back to 'list'
+                toggleBtn.setAttribute('aria-label', 'Switch to structured view');
+                currentView = 'cloud';
+            }
+        });
+    }
+
+    // --- Contact Form Modal Logic ---
     const overlay = document.getElementById('contact-form-overlay');
     const openBtn1 = document.getElementById('open-contact-form');
     const openBtn2 = document.getElementById('open-contact-form-2');
@@ -253,15 +351,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Re-attach listeners
         const closeBtn = formWrapper.querySelector('#close-contact-form');
-         if (closeBtn) {
-             closeBtn.addEventListener('click', closeModal);
-         }
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
         form.addEventListener('submit', handleFormSubmit);
 
         // Fade in form
-        setTimeout(() => {
-            form.classList.add('is-visible');
-        }, 100);
+        setTimeout(() => form.style.opacity = 1, 10);
     };
 
     const openModal = async () => {
@@ -348,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <br>
                     <button type="button" id="close-contact-form" class="terminal-btn go-back">close()</button>
                 `;
-                 const newCloseBtn = document.getElementById('close-contact-form');
+                const newCloseBtn = document.getElementById('close-contact-form');
                 if (newCloseBtn) newCloseBtn.addEventListener('click', closeModal);
             } else {
                 throw new Error(result.message || "Unknown error");
@@ -373,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <br>
                 <button type="button" id="close-contact-form" class="terminal-btn go-back">close()</button>
             `;
-             const newCloseBtn = document.getElementById('close-contact-form');
+            const newCloseBtn = document.getElementById('close-contact-form');
             if (newCloseBtn) newCloseBtn.addEventListener('click', closeModal);
         }
     };
@@ -382,4 +478,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 
 }); // End DOMContentLoaded
-// --- End Contact Form Modal Logic ---

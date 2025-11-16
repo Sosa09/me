@@ -17,8 +17,8 @@
 
     <!-- Right Sidebar (Email) -->
     <div class="side-bar side-bar-right hidden lg:flex">
-        <a href="mailto:soufiane.arrazouki@hotmail.com" class="email-link">
-            soufiane.arrazouki@hotmail.com
+        <a href="mailto:me@soufianearrazouki.com" class="email-link">
+            me@soufianearrazouki.com
         </a>
     </div>
 
@@ -156,17 +156,23 @@
         <section id="skills" class="my-20 md:my-32">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight">My Tech Stack</h2>
             <div class="w-24 h-1 accent-bg mt-4"></div>
-
-            <!-- Skill Cloud Container -->
-            <div id="skill-cloud-container" class="mt-16">
-                <!-- Fallback skills for non-JS/pre-load. Will be replaced by the dynamic cloud. -->
-                <div class="flex flex-wrap justify-center gap-4 text-center">
-                    <span class="fallback-skill">Docker</span>
-                    <span class="fallback-skill">Kubernetes</span>
-                    <span class="fallback-skill">AWS</span>
-                    <span class="fallback-skill">Terraform</span>
-                    <span class="fallback-skill">Python</span>
+            <div class="flex flex-col md:flex-row justify-between md:items-center mt-6">
+                <p class="text-base md:text-lg max-w-3xl text-slate opacity-80 mb-4 md:mb-0">
+                    I have experience with a wide range of tools and technologies. Choose your preferred view.
+                </p>
+                <!-- New Single Interchangeable Toggle Button -->
+                <div id="skill-view-toggle-container">
+                    <button id="skill-view-toggle-btn" class="skill-view-toggle-btn" aria-label="Switch to structured view">
+                        <!-- Icon will be injected by JS -->
+                    </button>
                 </div>
+            </div>
+
+            <!-- Animated Skill Cloud Container (hidden by default) -->
+            <div id="skill-cloud-container" class="mt-16"></div>
+            <!-- Structured Skills Container -->
+            <div id="skills-container" class="mt-12 hidden">
+                <!-- Skills will be dynamically loaded here -->
             </div>
         </section>
 
@@ -201,14 +207,6 @@
             <p class="text-sm text-slate opacity-70 mb-4">
                 Designed & Built by Soufiane Ar-Razouki (arrs) © 2025
             </p>
-            <!-- Download Links Section -->
-            <div id="download-links" class="text-sm text-slate opacity-70">
-                <span class="font-bold">Download Files:</span>
-                <a href="#" data-filename="index.html" class="underline hover:text-accent-color transition-colors mx-2">HTML</a> |
-                <a href="#" data-filename="styles.css" class="underline hover:text-accent-color transition-colors mx-2">CSS</a> |
-                <a href="#" data-filename="script.js" class="underline hover:text-accent-color transition-colors mx-2">JS</a> |
-                <a href="#" data-filename="data.json" class="underline hover:text-accent-color transition-colors mx-2">Data (JSON)</a>
-            </div>
         </footer>
 
     </div>

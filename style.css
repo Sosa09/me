@@ -22,6 +22,11 @@
     perspective: 1000px;
 }
 
+/* Ensure the hidden class properly hides the container */
+#skill-cloud-container.hidden {
+    display: none;
+}
+
 .skill-cloud {
     position: relative;
     width: 450px; /* Increased size for more space */
@@ -620,3 +625,90 @@ header.scrolled {
 #download-links a:hover {
     color: var(--accent-color);
 }
+
+/* === New Structured Skills Design === */
+.skill-category-card {
+    background-color: rgba(62, 50, 43, 0.5); /* var(--card-color) with opacity */
+    border-radius: 0.75rem; /* 12px */
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 152, 0, 0.1); /* Faint accent border */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.skill-category-title {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 152, 0, 0.2);
+    color: var(--text-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    background-color: var(--bg-color);
+    border-radius: 0.5rem; /* 8px */
+    padding: 1rem;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    border: 1px solid transparent;
+    cursor: default;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-color: rgba(255, 152, 0, 0.5);
+}
+
+.skill-card-name {
+    font-family: 'Chivo Mono', monospace;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.skill-card-proficiency-bg {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-card-proficiency-fg {
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    transition: width 0.5s ease-in-out;
+}
+
+.skill-notes-tooltip {
+    position: fixed;
+    background-color: var(--card-color);
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    max-width: 350px;
+    border: 1px solid var(--accent-color);
+    box-shadow: var(--shadow);
+    z-index: 110; /* Above everything else */
+    pointer-events: none; /* Don't let the tooltip block mouse events */
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -100%); /* Position above the cursor */
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.skill-notes-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+/* === End New Styles === */

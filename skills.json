@@ -1,0 +1,209 @@
+{
+  "skillCategories": [
+    {
+      "category": "Operating Systems",
+      "skills": [
+        {
+          "name": "Linux (General)",
+          "proficiency": 4,
+          "notes": "Proficient: Filesystem hierarchy, user/group/file permissions, process mgmt (ps, top), cronjob automation, text manipulation (awk, sed, grep)"
+        },
+        {
+          "name": "Debian/Ubuntu (apt)",
+          "proficiency": 4,
+          "notes": "Proficient: apt usage, systemd service mgmt, netplan network config, ufw firewall, PPA management"
+        },
+        {
+          "name": "RHEL/CentOS/Fedora (yum/dnf)",
+          "proficiency": 3,
+          "notes": "Competent: yum/dnf usage, systemd services, firewalld zones, basic SELinux (enforcing/permissive)"
+        },
+        {
+          "name": "Windows Server (Core)",
+          "proficiency": 4,
+          "notes": "Proficient: Advanced AD DS mgmt, DNS/DHCP failover, GPO filtering, DFS, managing FSMO roles"
+        },
+        {
+          "name": "Windows Client (10/11)",
+          "proficiency": 4,
+          "notes": "Proficient: Enterprise deployment (Autopilot/MDM), BitLocker, advanced gpedit troubleshooting, registry analysis"
+        }
+      ]
+    },
+    {
+      "category": "Scripting",
+      "skills": [
+        {
+          "name": "Bash / Shell Scripting",
+          "proficiency": 4,
+          "notes": "Proficient: Writing robust scripts with error checking, loops, conditionals, functions, command substitution"
+        },
+        {
+          "name": "Python",
+          "proficiency": 2,
+          "notes": "Novice: Running existing scripts, making minor edits, understanding data types (lists, dicts), pip install, Boto3/requests awareness"
+        },
+        {
+          "name": "PowerShell",
+          "proficiency": 4,
+          "notes": "Proficient: AD/O365/Azure mgmt, Remoting (Invoke-Command), scripting, module usage, profile scripting"
+        }
+      ]
+    },
+    {
+      "category": "Programming Languages",
+      "skills": [
+        {
+          "name": "C#",
+          "proficiency": 3,
+          "notes": "Competent: Familiar with .NET projects, debugging simple console apps, reading/modifying existing web/app code"
+        },
+        {
+          "name": "SQL (General)",
+          "proficiency": 4,
+          "notes": "Proficient: Writing complex JOINs, views, basic stored procedures, understanding indexes, aggregate functions"
+        },
+        {
+          "name": "(Other, e.g., Go, Java)",
+          "proficiency": 2,
+          "notes": "Novice: Ability to read/understand basic syntax and program flow, can compile/run existing projects"
+        }
+      ]
+    },
+    {
+      "category": "Infrastructure as Code (IaC)",
+      "skills": [
+        {
+          "name": "Terraform",
+          "proficiency": 3,
+          "notes": "Competent: Writing/applying configs (plan/apply), managing modules, understanding tfstate, variable definition"
+        },
+        {
+          "name": "Ansible",
+          "proficiency": 2,
+          "notes": "Novice: Running ad-hoc commands, executing existing playbooks, understanding inventory file structure"
+        },
+        {
+          "name": "ARM / Bicep (Azure)",
+          "proficiency": 2,
+          "notes": "Novice: Deploying from existing templates, reading parameters.json, understanding Bicep's cleaner syntax"
+        }
+      ]
+    },
+    {
+      "category": "Hardware & Virtualization",
+      "skills": [
+        {
+          "name": "Server Hardware (General)",
+          "proficiency": 4,
+          "notes": "Proficient: iDRAC/iLO config/use, RAID array setup/expansion, firmware updates, physical installation"
+        },
+        {
+          "name": "VMware vSphere / ESXi",
+          "proficiency": 3,
+          "notes": "Competent: Creating/managing VMs, vCenter basics, storage (datastores), vMotion, snapshots"
+        },
+        {
+          "name": "Microsoft Hyper-V",
+          "proficiency": 4,
+          "notes": "Proficient: Live Migration, failover clustering, managing virtual switches, VM checkpoints, replication basics"
+        },
+        {
+          "name": "Desktop Hardware",
+          "proficiency": 4,
+          "notes": "Proficient: Full system builds, component compatibility, diagnosing obscure hardware/driver issues"
+        }
+      ]
+    },
+    {
+      "category": "Cloud Platforms",
+      "skills": [
+        {
+          "name": "AWS (Core Services)",
+          "proficiency": 4,
+          "notes": "Proficient: EC2 (Launch Templates), S3 (Lifecycle), VPC (Peering, SGs, NACLs), IAM (Roles, Policies)"
+        },
+        {
+          "name": "Microsoft Azure (Core)",
+          "proficiency": 4,
+          "notes": "Proficient: VMs, Storage Accts, VNet (Peering, NSGs), App Service plans, Entra ID (Conditional Access)"
+        }
+      ]
+    },
+    {
+      "category": "Windows Server & Enterprise",
+      "skills": [
+        {
+          "name": "Active Directory Domain Svcs",
+          "proficiency": 4,
+          "notes": "Proficient: User/Group/OU mgmt, GPO creation/linking, FSMO role awareness, DNS/DHCP integration"
+        },
+        {
+          "name": "Group Policy (GPO)",
+          "proficiency": 4,
+          "notes": "Proficient: Applying settings, troubleshooting (gpresult), WMI filtering, item-level targeting, precedence"
+        },
+        {
+          "name": "Microsoft 365 Admin",
+          "proficiency": 4,
+          "notes": "Proficient: All core admin centers (Exchange, SharePoint, Teams), licensing, security & compliance basics"
+        },
+        {
+          "name": "Exchange Online",
+          "proficiency": 3,
+          "notes": "Competent: Mailbox/shared mailbox mgmt, transport rules, message tracing, distribution/M365 groups"
+        },
+        {
+          "name": "Exchange Server (On-prem)",
+          "proficiency": 2,
+          "notes": "Novice: Basic EAC navigation, checking mail queues, awareness of hybrid configuration needs"
+        },
+        {
+          "name": "SharePoint (Online/Server)",
+          "proficiency": 3,
+          "notes": "Competent: Site creation, library/list permissions, content types, troubleshooting sync issues"
+        },
+        {
+          "name": "Microsoft Intune / MDM",
+          "proficiency": 3,
+          "notes": "Competent: Device enrollment (Autopilot), configuration profiles, compliance policies, app deployment"
+        },
+        {
+          "name": "SCCM / MECM",
+          "proficiency": 3,
+          "notes": "Competent: Pushing app/package deployments, monitoring compliance, running reports, OS task sequences"
+        }
+      ]
+    },
+    {
+      "category": "CI/CD",
+      "skills": [
+        {
+          "name": "Git (Version Control)",
+          "proficiency": 4,
+          "notes": "Proficient: commit, push, pull, rebase vs merge, resolving merge conflicts, feature branching (GitFlow)"
+        },
+        {
+          "name": "GitHub (Platform)",
+          "proficiency": 4,
+          "notes": "Proficient: Reviewing/approving PRs, managing repo settings/secrets, GitHub Actions, issue tracking"
+        },
+        {
+          "name": "GitLab (Platform)",
+          "proficiency": 3,
+          "notes": "Competent: Merge requests, repo mgmt, understanding CI/CD pipeline runners and stages"
+        },
+        {
+          "name": "GitHub Actions",
+          "proficiency": 4,
+          "notes": "Proficient: Creating/editing YAML workflows, self-hosted vs. GitHub runners, matrix builds, managing secrets"
+        },
+        {
+          "name": "Azure DevOps (AzDo)",
+          "proficiency": 3,
+          "notes": "Competent: Using Boards, Repos; linking work items to commits; building/releasing simple pipelines"
+        }
+      ]
+    }
+  ]
+}
