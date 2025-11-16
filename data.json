@@ -14,12 +14,27 @@
     }
   ],
   "skills": [
-    "Docker", "Kubernetes", "Terraform", "Ansible", "AWS", "Azure", "GCP",
-    "CI/CD", "Jenkins", "GitLab CI", "GitHub Actions", "Git",
-    "Python", "Bash", "Go", "PowerShell",
-    "Linux", "Windows Server", "Networking", "Security",
-    "Prometheus", "Grafana", "ELK Stack", "Datadog",
-    "SQL", "NoSQL", "PostgreSQL", "MongoDB",
-    "Nginx", "Apache", "HAProxy", "Vault"
-  ]
+    "Python", "C#", "Linux", "Windows", "Azure", "Networking", "Apache",
+    "Docker", "Kubernetes", "Terraform", "Ansible", "CI/CD", "Git", "Bash",
+    "Prometheus", "Grafana", "Security"
+  ],
+  "skillDefinitions": {
+    "Python": "A versatile, high-level programming language used for web development, data science, and automation.",
+    "C#": "A modern, object-oriented programming language developed by Microsoft for building Windows applications and web services.",
+    "Linux": "An open-source operating system kernel, widely used for servers, cloud computing, and embedded systems.",
+    "Windows": "A family of operating systems developed by Microsoft, common in enterprise environments.",
+    "Azure": "Microsoft's cloud computing platform, offering a wide range of services for computing, analytics, storage, and networking.",
+    "Networking": "The practice of designing, building, and maintaining computer networks to enable communication and data sharing.",
+    "Apache": "A widely-used, open-source web server software that plays a key role in the initial growth of the World Wide Web.",
+    "Docker": "A platform for developing, shipping, and running applications in containers, ensuring consistency across environments.",
+    "Kubernetes": "An open-source container orchestration system for automating the deployment, scaling, and management of containerized applications.",
+    "Terraform": "An infrastructure as code (IaC) tool for building, changing, and versioning infrastructure safely and efficiently.",
+    "Ansible": "An open-source automation tool for configuration management, application deployment, and task automation.",
+    "CI/CD": "Continuous Integration and Continuous Delivery/Deployment: a practice of automating software development and release processes.",
+    "Git": "A distributed version control system for tracking changes in source code during software development.",
+    "Bash": "A command-line interpreter and scripting language for controlling Unix-like operating systems.",
+    "Prometheus": "An open-source systems monitoring and alerting toolkit originally built at SoundCloud.",
+    "Grafana": "An open-source platform for monitoring and observability, allowing you to query, visualize, and alert on metrics.",
+    "Security": "The practice of protecting computer systems and networks from theft, damage, or unauthorized access."
+  }
 }

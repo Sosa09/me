@@ -37,8 +37,7 @@ function renderAchievements() {
         card.className = 'achievement-card';
         card.innerHTML = `
             <div class="achievement-card-content p-6 min-h-[180px] flex flex-col justify-center">
-                <span class="text-sm font-bold accent-text uppercase tracking-widest">${ach.category}</span>
-                <h4 class="mt-2 text-xl font-bold">${ach.title}</h4>
+                <span class="text-sm font-bold accent-text uppercase tracking-widest">${ach.title}</span>
                 <p class="mt-3 text-base opacity-80">${ach.description}</p>
             </div>
         `;
@@ -55,11 +54,11 @@ function renderSkillCloud() {
 
     let skillsData = [];
     if (portfolioData && portfolioData.skills && portfolioData.skills.length > 0) {
+        const definitions = portfolioData.skillDefinitions || {};
         // If skills exist in data.json, map them to the required object structure
         skillsData = portfolioData.skills.map(skill => ({
             name: skill,
-            definition: `Definition for ${skill}.` // Generic definition
-        }));
+            definition: 
     }
 
     const radius = 250; // Increased radius to spread skills out more
@@ -120,6 +119,24 @@ function renderSkillCloud() {
 // --- End Data Loading and Rendering ---
 
 // --- Contact Form Modal Logic ---
+
+// --- Smooth Scroll Logic ---
+function smoothScroll(event) {
+    // Only act on links with a hash
+    if (this.hash !== "") {
+        event.preventDefault();
+        const hash = this.hash;
+        const targetElement = document.querySelector(hash);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sticky Header Logic ---
@@ -133,6 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // --- End Sticky Header Logic ---
+
+    // --- Attach Smooth Scroll to Nav Links ---
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', smoothScroll);
+    });
+    // --- End Smooth Scroll ---
     // --- End Sticky Header Logic ---
 
     // --- Mobile Menu Logic ---
@@ -336,6 +361,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Sending message...</p>
                 <p class="text-red-500">Error: Message failed to send.</p>
                 <p>${error.message || 'Please try again later.'}</p>
+                <p>Sending message... <span class="text-red-500">failed.</span></p>
+                <p class="text-red-500">Error: ${error.message}.</p>
+                <br>
+                <p class="text-yellow-400">This is a client-side error, often caused by one of two things:</p>
+                <ol class="list-decimal list-inside text-yellow-400/80 pl-4">
+                    <li>Testing on a local machine without a PHP server (e.g., opening the HTML file directly).</li>
+                    <li>A network issue or incorrect file path on the live server.</li>
+                </ol>
+                <p class="mt-2">The form should work correctly when uploaded to a web host like Hostinger.</p>
                 <br>
                 <button type="button" id="close-contact-form" class="terminal-btn go-back">close()</button>
             `;
